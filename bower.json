@@ -1,0 +1,21 @@
+{
+  "name": "EBoard",
+  "private": true,
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0-rc.1"
+  },
+  "version": "0.0.0",
+  "authors": [
+    "Binh Nguyen <btnqv9@mail.umkc.edu>"
+  ],
+  "description": "UMKC EBoard: An Ionic App",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "www/lib",
+    "test",
+    "tests"
+  ]
+}
