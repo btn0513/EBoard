@@ -64,9 +64,15 @@ angular.module('eboard', ['ionic', 'eboard.controllers', 'eboard.services'])
         templateUrl: 'templates/tab-post.html'
       }
     }
+  })
+
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/home');
+  $urlRouterProvider.otherwise('/login');
 
 });
