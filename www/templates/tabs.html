@@ -1,23 +1,30 @@
-<ion-tabs class="tabs-icon-only tabs-dark">
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top tabs-dark">
 
-  <!-- Home Tab -->
-  <ion-tab icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/tab/home">
-    <ion-nav-view name="tab-home"></ion-nav-view>
+  <!-- Dashboard Tab -->
+  <ion-tab title="Browse" icon-off="ion-ionic" icon-on="ion-ionic" href="#/tab/dash">
+    <ion-nav-view name="tab-dash"></ion-nav-view>
   </ion-tab>
 
-  <!-- Mail Tab -->
-  <ion-tab icon-off="ion-ios-email-outline" icon-on="ion-ios-email" href="#/tab/mail">
-    <ion-nav-view name="tab-mail"></ion-nav-view>
+  <!-- Chats Tab -->
+  <ion-tab title="Chats" icon-off="ion-ios-chatbubble" icon-on="ion-ios-chatbubble" href="#/tab/chats">
+    <ion-nav-view name="tab-chats"></ion-nav-view>
   </ion-tab>
 
   <!-- Profile Tab -->
-  <ion-tab icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#/tab/profile">
+  <ion-tab title="Profile" icon-off="ion-ios-person" icon-on="ion-ios-person" href="#/tab/profile">
     <ion-nav-view name="tab-profile"></ion-nav-view>
   </ion-tab>
 
-  <!-- Adding Tab -->
-  <ion-tab icon-off="ion-ios-plus-outline" icon-on="ion-ios-plus" href="#/tab/post">
+
+  <!-- Post Tab -->
+  <ion-tab title="Post" icon-off="ion-ios-plus" icon-on="ion-ios-plus" href="#/tab/post">
     <ion-nav-view name="tab-post"></ion-nav-view>
   </ion-tab>
+
 
 </ion-tabs>

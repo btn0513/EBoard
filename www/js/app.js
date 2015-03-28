@@ -1,4 +1,11 @@
-angular.module('eboard', ['ionic', 'eboard.controllers', 'eboard.services'])
+// Ionic Starter App
+
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+// 'starter.services' is found in services.js
+// 'starter.controllers' is found in controllers.js
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -30,49 +37,83 @@ angular.module('eboard', ['ionic', 'eboard.controllers', 'eboard.services'])
   })
 
   // Each tab has its own nav history stack:
-  .state('tab.home', {
-    url: '/home',
+
+  .state('tab.dash', {
+    url: '/dash',
     views: {
-      'tab-home': {
-        templateUrl: 'templates/tab-home.html'
+      'tab-dash': {
+        templateUrl: 'templates/tab-dash.html',
+        controller: 'DashCtrl'
       }
     }
   })
 
-  .state('tab.mail', {
-    url: '/mail',
+  .state('tab.bulletin', {
+    url: '/bulletin',
     views: {
-      'tab-mail': {
-        templateUrl: 'templates/tab-mail.html'
+      'tab-dash': {
+        templateUrl: 'templates/dash-bulletin.html'
       }
     }
   })
 
-  .state('tab.profile', {
-    url: '/profile',
+  .state('tab.classified', {
+    url: '/classified',
     views: {
-      'tab-profile': {
-        templateUrl: 'templates/tab-profile.html'
+      'tab-dash': {
+        templateUrl: 'templates/dash-classified.html'
       }
     }
   })
+  .state('tab.search', {
+    url: '/search',
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/dash-search.html'
+      }
+    }
+  })
+
+  .state('tab.chats', {
+      url: '/chats',
+      views: {
+        'tab-chats': {
+          templateUrl: 'templates/tab-chats.html',
+          controller: 'ChatsCtrl'
+        }
+      }
+    })
+    .state('tab.chat-detail', {
+      url: '/chats/:chatId',
+      views: {
+        'tab-chats': {
+          templateUrl: 'templates/chat-detail.html',
+          controller: 'ChatDetailCtrl'
+        }
+      }
+    })
+
+    .state('tab.profile', {
+      url: '/profile',
+      views: {
+        'tab-profile': {
+          templateUrl: 'templates/tab-profile.html',
+        }
+      }
+    })
 
   .state('tab.post', {
     url: '/post',
     views: {
       'tab-post': {
-        templateUrl: 'templates/tab-post.html'
+        templateUrl: 'templates/tab-post.html',
+
       }
     }
-  })
-
-  .state('login', {
-    url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'LoginCtrl'
   });
 
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/tab/dash');
 
 });
