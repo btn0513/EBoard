@@ -1,5 +1,5 @@
 <ion-view title="UMKC">
-  <ion-header-bar class="bar-subheader">
+  <ion-header-bar class="bar-subheader tabs-striped tabs-top">
     <div class="row">
       <div class="col col 25">
         <a class="tab-item" href="#/tab/dash">Featured</a>
@@ -11,14 +11,19 @@
         <a class="tab-item" href="#tab/classified">Classifed</a>
       </div>
       <div class="col col 25">
-        <a class="tab-item" href="#tab/search">Search</a>
+        <a class="tab-item tab-item-active" href="#tab/search">Search</a>
       </div>
     </div>
   </ion-header-bar>
 
   <ion-content>
 
-Search
+    <div class="list list-inset">
+        <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="Search" ng-model="chatsFilter.name">
+        </label>
+    </div>
 
   </ion-content>
   </ion-view>
