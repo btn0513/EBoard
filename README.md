@@ -1,5 +1,4 @@
 # EBoard
 
 Current Active Members:
-  Mike
-  Binh
+  Mike, Binh, Reggie, Alex
