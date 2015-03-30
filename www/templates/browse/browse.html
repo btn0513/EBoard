@@ -1,5 +1,14 @@
 <ion-view title="UMKC">
     <!-- Deleted menu btn: We don't need any -->
+    <ion-tabs class="tabs-striped tabs-top tabs-color-positive">
+      <ion-tab title="Featured" href="#/browse/featured"></ion-tab>
+      <ion-tab title="Bulletin" href="#/browse/bulletin"></ion-tab>
+      <ion-tab title="Following" href="#/browse/following"></ion-tab>
+      <ion-tab title="Classified" href="#/browse/classified"></ion-tab>
+      <ion-tab title="Search" href="#/browse/search"></ion-tab>
+    </ion-tabs>
+<!--
+    Old implementation -> Deleted
     <ion-header-bar class="bar-subheader tabs-striped tabs-top">
         <div class="row">
             <div class="col col-20">
@@ -10,7 +19,6 @@
             </div>
             <div class="col col-20">
               <a nav-direction="back" class="tab-item" ui-sref="home.browse.following">Following</a>
-              <!-- deleted tab-item-active property -->
             </div>
             <div class="col col-20">
               <a nav-direction="back" class="tab-item" ui-sref="home.browse.classified">Classifed</a>
@@ -19,8 +27,9 @@
               <a nav-direction="back" class="tab-item" ui-sref="home.browse.search">Search</a>
             </div>
         </div>
-    </ion-header-bar>
-    <ion-content has-header="true" padding="true">
+        </ion-header-bar>
+-->
+    <ion-content class="has-tabs-top" padding="true">
       <div ui-view name="browsing"></div>
     </ion-content>
 </ion-view>
