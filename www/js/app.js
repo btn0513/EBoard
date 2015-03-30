@@ -51,6 +51,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+    .state('home.details', { //  url#/browse/featured/details
+      url: "browse/featured/details/:dID",
+      views: {
+        'browse' :{
+          templateUrl: "templates/browse/details.html"
+        }
+      }
+    })
     .state('home.browse.following', { //  url#/browse/following
       url: "/following",
       views: {
@@ -86,25 +94,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     
     //**************     CHAT PAGE     *******************************
     
-    .state('home.chat', {
+    .state('home.chat', { //  url#/chat
       url: "chat",
       views: {
         'chat' :{
-          templateUrl: "templates/chat/chat.html"
-        }
-      }
-    }).state('home.chat.people', {
-      url: "/people",
-      views: {
-        'chating' :{
-          templateUrl: "templates/chat/people.html",
+          templateUrl: "templates/chat/chat.html",
           controller: 'ChatsCtrl'
         }
       }
-    }).state('home.chat.chating', {
-      url: "/:chatId",
+    }).state('home.chating', { //  url#/chat/:chatId
+      url: "chat/:chatId",
       views: {
-        'chating' :{
+        'chat' :{
           templateUrl: "templates/chat/chating.html",
           controller: 'ChatDetailCtrl'
         }
@@ -113,7 +114,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     
     //**************     PROFILE PAGE     *******************************
     
-    .state('home.profile', {
+    .state('home.profile', { //  url#/profile
       url: "profile",
       views: {
         'profile' :{
@@ -124,7 +125,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     
     //**************     POST PAGE     *******************************
     
-    .state('home.post', {
+    .state('home.post', { //  url#/post
       url: "post",
       views: {
         'post' :{
