@@ -93,6 +93,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           templateUrl: "templates/chat/chat.html"
         }
       }
+    }).state('home.chat.people', {
+      url: "/people",
+      views: {
+        'chating' :{
+          templateUrl: "templates/chat/people.html",
+          controller: 'ChatsCtrl'
+        }
+      }
+    }).state('home.chat.chating', {
+      url: "/:chatId",
+      views: {
+        'chating' :{
+          templateUrl: "templates/chat/chating.html",
+          controller: 'ChatDetailCtrl'
+        }
+      }
     })
     
     //**************     PROFILE PAGE     *******************************
