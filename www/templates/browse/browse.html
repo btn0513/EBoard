@@ -1,7 +1,5 @@
 <ion-view title="UMKC">
-    <ion-nav-buttons side="primary">
-      <button class="button button-icon icon ion-navicon"></button>
-    </ion-nav-buttons>
+    <!-- Deleted menu btn: We don't need any -->
     <ion-header-bar class="bar-subheader tabs-striped tabs-top">
         <div class="row">
             <div class="col col-20">
@@ -11,7 +9,8 @@
               <a nav-direction="back" class="tab-item" ui-sref="home.browse.bulletin">Bulletin</a>
             </div>
             <div class="col col-20">
-              <a nav-direction="back" class="tab-item tab-item-active" ui-sref="home.browse.following">Following</a>
+              <a nav-direction="back" class="tab-item" ui-sref="home.browse.following">Following</a>
+              <!-- deleted tab-item-active property -->
             </div>
             <div class="col col-20">
               <a nav-direction="back" class="tab-item" ui-sref="home.browse.classified">Classifed</a>
