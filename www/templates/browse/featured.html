@@ -1,7 +1,7 @@
 <div class="row" ng-repeat="post in posts" ng-if="$index % 2 === 0">
 
-  <div class="col col-50" ng-if="$index < posts.length">
-    <div class="list card">
+  <div class="col" ng-if="$index < posts.length">
+    <div class="list card" style="box-shadow:0 2px 10px black; border-radius: 5px;">
 	  <a class="item item-image" href="#/browse/details/{{posts[$index].id}}">
 		<img class="full-image" ng-src="{{posts[$index].img}}">
 	  </a>
@@ -12,8 +12,8 @@
 	  </div>
     </div>
   </div>
-  <div class="col col-50" ng-if="$index + 1 < posts.length">
-    <div class="list card">
+  <div class="col" ng-if="$index + 1 < posts.length">
+    <div class="list card" style="box-shadow:0 2px 10px black; border-radius: 5px;">
 	  <a class="item item-image" href="#/browse/details/{{posts[$index + 1].id}}">
 		<img class="full-image" ng-src="{{posts[$index + 1].img}}">
 	  </a>
