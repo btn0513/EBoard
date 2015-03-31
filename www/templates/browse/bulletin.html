@@ -1,47 +1,10 @@
-<div class="row">
-      <div class="col col-50" >
-        <div class="list-card">
-          <a class="item item-image"><img class="full-image" src="img/event5.jpg"></a>
-          <div class="item item-divider footerCard">
-            Six Flags
-            <br/>
-            <i class="icon ion-ios-heart"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col col-50" >
-        <div class="list-card">
-          <a class="item item-image"><img class="full-image" src="img/event6.jpg"></a>
-          <div class="item item-divider footerCard">
-            Literacy Event
-            <br/>
-            <i class="icon ion-ios-heart"></i>
-          </div>
-        </div>
-      </div>
+<div collection-repeat="post in posts | limitTo:2" item-width="50%" item-height="45%">
+  <div class="list-card">
+    <a class="item item-image" href="#/browse/details/{{post.id}}"><img class="full-image" ng-src="{{post.img}}"></a>
+    <div class="item item-divider footerCard">
+      {{post.title}}
+      <br/>
+      <i class="icon ion-ios-heart"></i>
     </div>
-
-    <div class="row">
-      <div class="col col-50" >
-        <div class="list-card">
-          <a class="item item-image"><img class="full-image" src="img/event7.jpg"></a>
-          <div class="item item-divider footerCard">
-            WorkAholics
-            <br/>
-            <i class="icon ion-ios-heart"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col col-50" >
-        <div class="list-card">
-          <a class="item item-image"><img class="full-image" src="img/event8.jpg"></a>
-          <div class="item item-divider footerCard">
-            Basket Ball
-            <br/>
-            <i class="icon ion-ios-heart"></i>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
+</div>

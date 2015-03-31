@@ -30,6 +30,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $stateProvider
   .state('home', {
       url: "/",
+      abstract: true,
       templateUrl: "templates/pages/home.html"
     })
     
@@ -39,7 +40,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: "browse",
       views: {
         'browse' :{
-          templateUrl: "templates/browse/browse.html"
+          templateUrl: "templates/browse/browse.html",
+          controller: 'BrowseCtrl'
         }
       }
     })
@@ -51,11 +53,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('home.details', { //  url#/browse/featured/details
-      url: "browse/featured/details/:dID",
+    .state('home.details', { //  url#/featured/details
+      url: "browse/details/:postId",
       views: {
         'browse' :{
-          templateUrl: "templates/browse/details.html"
+          templateUrl: "templates/browse/details.html",
+          controller: 'PostDetailCtrl'
         }
       }
     })
@@ -136,6 +139,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     
     ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/browse/featured');
 
 });

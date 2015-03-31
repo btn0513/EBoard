@@ -46,4 +46,76 @@ angular.module('starter.services', [])
       return null;
     }
   };
-});
+})
+
+.factory('Posts', function() {
+    // Might use a resource here that returns a JSON array
+    // Some fake testing data
+    var posts = 
+    [{
+      id: 0,
+      title: 'GSU Night',
+      img: 'img/event1.jpg'
+    },
+    {
+      id: 1,
+      title: 'Literacy In Our Culture',
+      img: 'img/event2.jpg'
+    },
+    {
+      id: 2,
+      title: 'Literacy In Our Culture',
+      img: 'img/event3.jpg'
+    },
+    {
+      id: 3,
+      title: 'Georgia State vs Atlanta Hawks',
+      img: 'img/event4.jpg'
+    },
+    {
+      id: 4,
+      title: 'Maleficient showing night',
+      img: 'img/event5.jpg'
+    },
+    {
+      id: 5,
+      title: 'The Princess Pride',
+      img: 'img/event6.jpg'
+    },
+    {
+      id: 6,
+      title: 'Georgia State Night',
+      img: 'img/event7.jpg'
+    },
+    {
+      id: 7,
+      title: 'Life According to Jimmy',
+      img: 'img/event8.jpg'
+    },
+    {
+      id: 8,
+      title: 'Disney Nature Bears',
+      img: 'img/event9.jpg'
+    },
+    {
+      id: 9,
+      title: 'Workaholics',
+      img: 'img/event10.jpg'
+    }];
+
+    return {
+      all: function() {
+        return posts;
+      },
+      get: function(postId) {
+        for (var i = 0; i < posts.length; i++) {
+          if (posts[i].id === parseInt(postId)) {
+            return posts[i];
+          }
+        }
+        return null;
+      }
+    };
+  })
+
+;
