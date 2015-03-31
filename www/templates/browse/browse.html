@@ -1,0 +1,21 @@
+<ion-view title="UMKC">
+    
+    <ion-nav-buttons side="secondary">
+      <button class="button button-icon icon ion-ios-location"></button>
+    </ion-nav-buttons>
+    <ion-tabs class=" tabs-striped tabs-positive tabs-top">
+        <ion-tab title="Featured"  ui-sref="home.browse.featured">
+        </ion-tab>
+        <ion-tab title="Bulletin"  ui-sref="home.browse.bulletin">
+        </ion-tab>
+        <ion-tab title="Following"  ui-sref="home.browse.following">
+        </ion-tab>
+        <ion-tab title="Classified"  ui-sref="home.browse.classified">
+        </ion-tab>
+        <ion-tab title="Search" ui-sref="home.browse.search">
+        </ion-tab>
+    </ion-tabs>
+    <ion-content has-header="true" padding="true">
+      <div ui-view name="browsing"></div>
+    </ion-content>
+</ion-view>

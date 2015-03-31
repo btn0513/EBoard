@@ -21,106 +21,121 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $ionicConfigProvider, $urlRouterProvider) {
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
+  $ionicConfigProvider.backButton.previousTitleText(false).text(''); // Hide default back btn text
+
+  $ionicConfigProvider.views.transition("android");  // android view transition
+
   $stateProvider
-
-  // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: "/tab",
-    abstract: true,
-    templateUrl: "templates/tabs.html"
-  })
-
-  // Each tab has its own nav history stack:
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html'
-      }
-    }
-  })
-
-  .state('tab.bulletin', {
-    url: '/bulletin',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/dash-bulletin.html'
-      }
-    }
-  })
-
-  .state('tab.following', {
-    url: '/following',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/dash-following.html'
-      }
-    }
-  })
-
-  .state('tab.classified', {
-    url: '/classified',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/dash-classified.html'
-      }
-    }
-  })
-
-  .state('tab.search', {
-    url: '/search',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/dash-search.html'
-      }
-    }
-  })
-
-  .state('tab.chats', {
-      url: '/chats',
+  .state('home', {
+      url: "/",
+      templateUrl: "templates/pages/home.html"
+    })
+    
+    //**************     BROWSE PAGE     *******************************
+    
+    .state('home.browse', { //  url#/browse
+      url: "browse",
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'browse' :{
+          templateUrl: "templates/browse/browse.html"
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+    .state('home.browse.featured', { //  url#/browse/featured
+      url: "/featured",
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
+        'browsing' :{
+          templateUrl: "templates/browse/featured.html"
+        }
+      }
+    })
+    .state('home.details', { //  url#/browse/featured/details
+      url: "browse/featured/details/:dID",
+      views: {
+        'browse' :{
+          templateUrl: "templates/browse/details.html"
+        }
+      }
+    })
+    .state('home.browse.following', { //  url#/browse/following
+      url: "/following",
+      views: {
+        'browsing' :{
+          templateUrl: "templates/browse/following.html"
+        }
+      }
+    })
+    .state('home.browse.bulletin', { //  url#/browse/bulletin
+      url: "/bulletin",
+      views: {
+        'browsing' :{
+          templateUrl: "templates/browse/bulletin.html"
+        }
+      }
+    })
+    .state('home.browse.classified', { //  url#/browse/classified
+      url: "/classified",
+      views: {
+        'browsing' :{
+          templateUrl: "templates/browse/classified.html"
+        }
+      }
+    })
+    .state('home.browse.search', { //  url#/browse/search
+      url: "/search",
+      views: {
+        'browsing' :{
+          templateUrl: "templates/browse/search.html"
+        }
+      }
+    })
+    
+    //**************     CHAT PAGE     *******************************
+    
+    .state('home.chat', { //  url#/chat
+      url: "chat",
+      views: {
+        'chat' :{
+          templateUrl: "templates/chat/chat.html",
+          controller: 'ChatsCtrl'
+        }
+      }
+    }).state('home.chating', { //  url#/chat/:chatId
+      url: "chat/:chatId",
+      views: {
+        'chat' :{
+          templateUrl: "templates/chat/chating.html",
           controller: 'ChatDetailCtrl'
         }
       }
     })
-
-    .state('tab.profile', {
-      url: '/profile',
+    
+    //**************     PROFILE PAGE     *******************************
+    
+    .state('home.profile', { //  url#/profile
+      url: "profile",
       views: {
-        'tab-profile': {
-          templateUrl: 'templates/tab-profile.html',
+        'profile' :{
+          templateUrl: "templates/profile/profile.html"
         }
       }
     })
-
-  .state('tab.post', {
-    url: '/post',
-    views: {
-      'tab-post': {
-        templateUrl: 'templates/tab-post.html',
-
+    
+    //**************     POST PAGE     *******************************
+    
+    .state('home.post', { //  url#/post
+      url: "post",
+      views: {
+        'post' :{
+          templateUrl: "templates/post/post.html"
+        }
       }
-    }
-  });
-
+    })
+    
+    ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/');
 
 });
