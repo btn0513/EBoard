@@ -1,27 +1,39 @@
 <ion-view title="Details">
-  <ion-nav-buttons side="secondary"> <!-- Place Nav icon on the right -->
-    <button class="button button-icon icon ion-ios-location"></button>
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon icon ion-ios-location" ng-click=""></button>
   </ion-nav-buttons>
     
-  <ion-content class="has-header" style="background-color: #F0F0F0;">
-
+  <ion-content class="has-header" scroll="false" style="background-color: #F0F0F0;">
+    
     <ion-slide-box style="background-color: #CFDFEC;">
       <ion-slide style="text-align:center;">
-        <img style="height:19em; width:19em;" ng-src="{{post.img}}">
+        <a href="">
+          <img style="height:18em; width:18em;" ng-src="{{post.img}}">
+        </a>
       </ion-slide>
       <ion-slide style="text-align:center;">
-        <img style="height:19em; width:19em;" ng-src="{{post.img}}">
+        <a href="">
+          <img style="height:18em; width:18em;" ng-src="{{post.img}}">
+        </a>
       </ion-slide>
       <ion-slide style="text-align:center;">
-        <img style="height:19em; width:19em;" ng-src="{{post.img}}">
+        <a href="">
+          <img style="height:18em; width:18em;" ng-src="{{post.img}}">
+        </a>
+      </ion-slide>
+      <ion-slide style="text-align:center;">
+        <a href="">
+          <img style="height:18em; width:18em;" ng-src="{{post.img}}">
+        </a>
       </ion-slide>
     </ion-slide-box>
     
     <h3 style="text-align:center;">{{post.title}}</h3>
-      <div class="list card padding">
+      <div class="list card" style="margin-bottom:5px;">
         <div class="item item-body">
           <p><span class="positive padding" style="font-size: 1.5em;">When </span> {{post.when}}</p>
           <p><span class="positive padding" style="font-size: 1.5em;">Where </span> {{post.where}}</p>
+          <p>{{post.description}}</p>
         </div>
         <div class="item tabs">
           <a class="tab-item" href="#">
@@ -34,6 +46,10 @@
             <i class="icon ion-ios-undo"></i>
           </a>
         </div>
+      </div>
+      <div class="padding">
+      <h5 style="text-align:right; margin:0;">Posted by {{post.postedAuthor}}</h5>
+      <h5 style="text-align:right; margin:0;">{{post.postedDate}}</h5>
       </div>
   </ion-content>
 </ion-view>

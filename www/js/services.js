@@ -57,63 +57,90 @@ angular.module('starter.services', [])
       title: 'GSU Night',
       when: '4/7 at 4:00 PM',
       where: '560L Flarsheim Hall',
-      img: 'img/event1.jpg'
+      description: 'Description texts here... bla bla bla bla',
+      img: 'img/event1.jpg',
+      postedDate: 'March 31, 2015 at 11:00 AM',
+      postedAuthor: 'Binh Nguyen'
     },
     {
       id: 1,
       title: 'Literacy In Our Culture',
       when: '4/7 at 2:00 PM',
       where: 'Student Union',
-      img: 'img/event2.jpg'
+      description: 'Description texts here... bla bla bla bla',
+      img: 'img/event2.jpg',
+      postedDate: 'March 15, 2015 at 12:00 AM',
+      postedAuthor: 'An Nguyen'
     },
     {
       id: 2,
       title: 'Literacy In Our Culture',
       when: '4/7 at 1:00 PM',
       where: 'School of Education',
-      img: 'img/event3.jpg'
+      description: 'Description texts here... bla bla bla bla',
+      img: 'img/event3.jpg',
+      postedDate: 'March 23, 2015 at 8:00 AM',
+      postedAuthor: 'Hoang Nguyen'
     },
     {
       id: 3,
       title: 'Georgia State vs Atlanta Hawks',
       when: '4/8 at 10:00 AM',
       where: 'Swinney Recreational Center',
-      img: 'img/event4.jpg'
+      description: 'Description texts here... bla bla bla bla',
+      img: 'img/event4.jpg',
+      postedDate: 'March 20, 2015 at 7:00 AM',
+      postedAuthor: 'Micheal Nguyen'
     },
     {
       id: 4,
       title: 'Maleficient showing night',
       when: '4/8 at 8:00 PM',
       where: 'Student Union',
-      img: 'img/event5.jpg'
+      description: 'Description texts here... bla bla bla bla',
+      img: 'img/event5.jpg',
+      postedDate: 'March 26, 2015 at 9:00 AM',
+      postedAuthor: 'Jake Nguyen'
     },
     {
       id: 5,
       title: 'The Princess Pride',
       when: '4/79 at 7:00 PM',
       where: 'Student Union',
-      img: 'img/event6.jpg'
+      description: 'Description texts here... bla bla bla bla',
+      img: 'img/event6.jpg',
+      postedDate: 'March 25, 2015 at 10:00 AM',
+      postedAuthor: 'Reggie Roby'
     },
     {
       id: 6,
       title: 'Georgia State Night',
       when: '5/7 at 4:00 PM',
       where: 'Georgia State University',
-      img: 'img/event7.jpg'
+      description: 'Description texts here... bla bla bla bla',
+      img: 'img/event7.jpg',
+      postedDate: 'March 22, 2015 at 9:00 AM',
+      postedAuthor: 'Alex'
     },
     {
       id: 7,
       title: 'Life According to Jimmy',
       when: '4/9 at 5:00 PM',
       where: 'Student Union',
-      img: 'img/event8.jpg'
+      description: 'Description texts here... bla bla bla bla',
+      img: 'img/event8.jpg',
+      postedDate: 'March 27, 2015 at 11:30 AM',
+      postedAuthor: 'Reggie'
     },
     {
       id: 8,
       title: 'Disney Nature Bears',
       when: '4/12 at 11:00 AM',
       where: 'Miler Nichols Library',
-      img: 'img/event9.jpg'
+      description: 'Description texts here... bla bla bla bla',
+      img: 'img/event9.jpg',
+      postedDate: 'March 30, 2015 at 12:00 AM',
+      postedAuthor: 'Micheal'
     }];
 
     return {
