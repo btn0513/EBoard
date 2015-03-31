@@ -21,12 +21,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $ionicConfigProvider, $urlRouterProvider) {
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
+  $ionicConfigProvider.backButton.previousTitleText(false).text(''); // Hide default back btn text
+
+  $ionicConfigProvider.views.transition("android");  // android view transition
+
   $stateProvider
   .state('home', {
       url: "/",
@@ -133,13 +133,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    
-    
-    
-    
-    
- 
-    
     
     ;
   // if none of the above states are matched, use this as the fallback
