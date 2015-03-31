@@ -24,7 +24,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 .config(function($stateProvider, $ionicConfigProvider, $urlRouterProvider) {
 
   $ionicConfigProvider.backButton.previousTitleText(false).text(''); // Hide default back btn text
-
+  $ionicConfigProvider.tabs.position('bottom');
   $ionicConfigProvider.views.transition("android");  // android view transition
 
   $stateProvider

@@ -55,52 +55,65 @@ angular.module('starter.services', [])
     [{
       id: 0,
       title: 'GSU Night',
+      when: '4/7 at 4:00 PM',
+      where: '560L Flarsheim Hall',
       img: 'img/event1.jpg'
     },
     {
       id: 1,
       title: 'Literacy In Our Culture',
+      when: '4/7 at 2:00 PM',
+      where: 'Student Union',
       img: 'img/event2.jpg'
     },
     {
       id: 2,
       title: 'Literacy In Our Culture',
+      when: '4/7 at 1:00 PM',
+      where: 'School of Education',
       img: 'img/event3.jpg'
     },
     {
       id: 3,
       title: 'Georgia State vs Atlanta Hawks',
+      when: '4/8 at 10:00 AM',
+      where: 'Swinney Recreational Center',
       img: 'img/event4.jpg'
     },
     {
       id: 4,
       title: 'Maleficient showing night',
+      when: '4/8 at 8:00 PM',
+      where: 'Student Union',
       img: 'img/event5.jpg'
     },
     {
       id: 5,
       title: 'The Princess Pride',
+      when: '4/79 at 7:00 PM',
+      where: 'Student Union',
       img: 'img/event6.jpg'
     },
     {
       id: 6,
       title: 'Georgia State Night',
+      when: '5/7 at 4:00 PM',
+      where: 'Georgia State University',
       img: 'img/event7.jpg'
     },
     {
       id: 7,
       title: 'Life According to Jimmy',
+      when: '4/9 at 5:00 PM',
+      where: 'Student Union',
       img: 'img/event8.jpg'
     },
     {
       id: 8,
       title: 'Disney Nature Bears',
+      when: '4/12 at 11:00 AM',
+      where: 'Miler Nichols Library',
       img: 'img/event9.jpg'
-    },
-    {
-      id: 9,
-      title: 'Workaholics',
-      img: 'img/event10.jpg'
     }];
 
     return {
