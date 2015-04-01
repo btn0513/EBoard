@@ -1,47 +1,17 @@
-<div class="row">
-      <div class="col col-50" >
-        <div class="list-card">
-          <a class="item item-image"><img class="full-image" src="img/event5.jpg"></a>
-          <div class="item item-divider footerCard">
-            Six Flags
-            <br/>
-            <i class="icon ion-ios-heart"></i>
-          </div>
-        </div>
-      </div>
+<div class="row" ng-repeat="post in posts" ng-if="$index % 2 === 0">
 
-      <div class="col col-50" >
-        <div class="list-card">
-          <a class="item item-image"><img class="full-image" src="img/event6.jpg"></a>
-          <div class="item item-divider footerCard">
-            Literacy Event
-            <br/>
-            <i class="icon ion-ios-heart"></i>
-          </div>
-        </div>
-      </div>
+  <div class="col" ng-if="$index < posts.length">
+    <div class="list card" style="box-shadow:0 1px 5px black; border-radius: 4px; margin:0;">
+	  <a class="item item-image" href="#/browse/details/{{posts[$index].id}}">
+		<img class="full-image" ng-src="{{posts[$index].img}}">
+	  </a>
     </div>
-
-    <div class="row">
-      <div class="col col-50" >
-        <div class="list-card">
-          <a class="item item-image"><img class="full-image" src="img/event7.jpg"></a>
-          <div class="item item-divider footerCard">
-            WorkAholics
-            <br/>
-            <i class="icon ion-ios-heart"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col col-50" >
-        <div class="list-card">
-          <a class="item item-image"><img class="full-image" src="img/event8.jpg"></a>
-          <div class="item item-divider footerCard">
-            Basket Ball
-            <br/>
-            <i class="icon ion-ios-heart"></i>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
+  <div class="col" ng-if="$index + 1 < posts.length">
+    <div class="list card" style="box-shadow:0 1px 5px black; border-radius: 4px; margin:0;">
+	  <a class="item item-image" href="#/browse/details/{{posts[$index + 1].id}}">
+		<img class="full-image" ng-src="{{posts[$index + 1].img}}">
+	  </a>
+	</div>
+  </div>
+</div>

@@ -2,7 +2,7 @@
     
     <ion-nav-buttons></ion-nav-buttons> <!-- This code here actually fixes the back button bug! -->
 
-    <ion-tabs class="tabs-striped tabs-top">
+    <ion-tabs class="tabs-striped tabs-top tabs-color-positive">
         <ion-tab title="Featured" ui-sref="home.browse.featured">
         </ion-tab>
         <ion-tab title="Bulletin" ui-sref="home.browse.bulletin">
@@ -14,7 +14,8 @@
         <ion-tab title="Search" ui-sref="home.browse.search">
         </ion-tab>
     </ion-tabs>
-    <ion-content class="has-tabs-top">
+    
+    <ion-content class="has-tabs-top" style="background-color:#EDEDED;">
       <div ui-view name="browsing"></div>
     </ion-content>
 </ion-view>
