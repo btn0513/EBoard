@@ -5,6 +5,10 @@
 	  <a class="item item-image" href="#/browse/details/{{posts[$index].id}}">
 		<img class="full-image" ng-src="{{posts[$index].img}}">
 	  </a>
+    <div class="item item-divider item-icon-right " Style="height:">
+	   <p style="font-size: small;">  {{posts[$index].title}} </p>
+		<i style="font-size: x-small;" class="icon ion-ios-heart assertive"></i>
+	  </div>
     </div>
   </div>
   <div class="col" ng-if="$index + 1 < posts.length">
@@ -12,6 +16,10 @@
 	  <a class="item item-image" href="#/browse/details/{{posts[$index + 1].id}}">
 		<img class="full-image" ng-src="{{posts[$index + 1].img}}">
 	  </a>
+	  <div class="item item-divider item-icon-right">
+	   <p style="font-size: small;">  {{posts[$index + 1].title}} </p>
+		<i style="font-size: x-small;" class="icon ion-ios-heart assertive"></i>
+	  </div>
 	</div>
   </div>
 </div>

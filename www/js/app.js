@@ -33,9 +33,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       abstract: true,
       templateUrl: "templates/pages/home.html"
     })
-    
+
     //**************     BROWSE PAGE     *******************************
-    
+
     .state('home.browse', { //  url#/browse
       url: "browse",
       views: {
@@ -94,9 +94,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    
+
     //**************     CHAT PAGE     *******************************
-    
+
     .state('home.chat', { //  url#/chat
       url: "chat",
       views: {
@@ -114,9 +114,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    
+
     //**************     PROFILE PAGE     *******************************
-    
+
     .state('home.profile', { //  url#/profile
       url: "profile",
       views: {
@@ -125,9 +125,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    
+
     //**************     POST PAGE     *******************************
-    
+
     .state('home.post', { //  url#/post
       url: "post",
       views: {
@@ -136,7 +136,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    
+
     ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/browse/featured');

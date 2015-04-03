@@ -19,6 +19,6 @@ angular.module('starter.controllers', [])
 
 .controller('PostDetailCtrl', function($scope, $stateParams, Posts) {
   $scope.post = Posts.get($stateParams.postId);
-}) 
+})
 
 ;
