@@ -62,14 +62,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('home.browse.following', { //  url#/browse/following
-      url: "/following",
-      views: {
-        'browsing' :{
-          templateUrl: "templates/browse/following.html"
-        }
-      }
-    })
     .state('home.browse.bulletin', { //  url#/browse/bulletin
       url: "/bulletin",
       views: {
