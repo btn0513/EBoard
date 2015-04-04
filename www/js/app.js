@@ -106,6 +106,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+  //********* Pin Page ************
+    .state('home.pin',{
+      url:"pin",
+      views:{
+        'pin':{
+          templateUrl:"templates/pin/pin.html"
+        }
+      }
+    })
 
     //**************     PROFILE PAGE     *******************************
 
