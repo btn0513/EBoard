@@ -30,116 +30,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $stateProvider
   .state('home', {
       url: "/",
-      abstract: true,
       templateUrl: "templates/pages/home.html"
     })
-
-    //**************     BROWSE PAGE     *******************************
-
-    .state('home.browse', { //  url#/browse
-      url: "browse",
-      views: {
-        'browse' :{
-          templateUrl: "templates/browse/browse.html",
-          controller: 'BrowseCtrl'
-        }
-      }
+  .state('signin', {
+      url: "/signin",
+      templateUrl: "templates/pages/signin.html"
     })
-    .state('home.browse.featured', { //  url#/browse/featured
-      url: "/featured",
-      views: {
-        'browsing' :{
-          templateUrl: "templates/browse/featured.html"
-        }
-      }
+  .state('mainlocs', {
+      url: "/locations",
+      templateUrl: "templates/pages/mainlocations.html"
     })
-    .state('home.details', { //  url#/featured/details
-      url: "browse/details/:postId",
-      views: {
-        'browse' :{
-          templateUrl: "templates/browse/details.html",
-          controller: 'PostDetailCtrl'
-        }
-      }
+  .state('map', {
+      url: "/locations/map",
+      templateUrl: "templates/pages/map.html"
     })
-    .state('home.browse.bulletin', { //  url#/browse/bulletin
-      url: "/bulletin",
-      views: {
-        'browsing' :{
-          templateUrl: "templates/browse/bulletin.html"
-        }
-      }
+  .state('subloc', {
+      url: "/locations/:lid",
+      templateUrl: "templates/pages/sublocation.html"
     })
-    .state('home.browse.classified', { //  url#/browse/classified
-      url: "/classified",
-      views: {
-        'browsing' :{
-          templateUrl: "templates/browse/classified.html"
-        }
-      }
-    })
-    .state('home.browse.search', { //  url#/browse/search
-      url: "/search",
-      views: {
-        'browsing' :{
-          templateUrl: "templates/browse/search.html"
-        }
-      }
-    })
-
-    //**************     CHAT PAGE     *******************************
-
-    .state('home.chat', { //  url#/chat
-      url: "chat",
-      views: {
-        'chat' :{
-          templateUrl: "templates/chat/chat.html",
-          controller: 'ChatsCtrl'
-        }
-      }
-    }).state('home.chating', { //  url#/chat/:chatId
-      url: "chat/:chatId",
-      views: {
-        'chat' :{
-          templateUrl: "templates/chat/chating.html",
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
-  //********* Pin Page ************
-    .state('home.pin',{
-      url:"pin",
-      views:{
-        'pin':{
-          templateUrl:"templates/pin/pin.html"
-        }
-      }
-    })
-
-    //**************     PROFILE PAGE     *******************************
-
-    .state('home.profile', { //  url#/profile
-      url: "profile",
-      views: {
-        'profile' :{
-          templateUrl: "templates/profile/profile.html"
-        }
-      }
-    })
-
-    //**************     POST PAGE     *******************************
-
-    .state('home.post', { //  url#/post
-      url: "post",
-      views: {
-        'post' :{
-          templateUrl: "templates/post/post.html"
-        }
-      }
+  .state('sublocitem', {
+      url: "/locations/:lid/item/:iid",
+      templateUrl: "templates/pages/item.html"
     })
 
     ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/browse/featured');
+  $urlRouterProvider.otherwise('/');
 
 });

@@ -1,0 +1,32 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-positive">
+          <button class="button button-clear icon-left ion-chevron-left"
+                  ui-sref="subloc({lid: 2})" i>Back</button>
+        <h1 class="title">Item Name</h1>
+          <button class="button button-clear icon-right ion-ios-home"
+                  ui-sref="home" i></button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list card">
+            <div class="item item-body center">
+                <div style="max-width:500px;max-height:500px" class="item item-image">
+                    <img class="full-image" src="img/lichen1x.jpg">
+                </div>
+                <h1 style="text-align:left;"><b>Hint:</b></h1>
+                <p>
+                    This can be found hanging high above with a sunny
+                    disposition. They were named in Latin for their
+                    "slit-end" appearance.
+                </p>
+            </div>
+        </div>
+        <div ng-controller="QRCtrl" class="col" style="text-align:center;">
+                <h1><b>Found it?</b></h1>
+                <p>
+                    Take picture of the QR code
+                </p>
+          <button style="width:200px;" class="button button-large button-positive icon ion-ios-camera"
+                  ng-click="show()" i></button>
+        </div>
+    </ion-content>
+</ion-view>

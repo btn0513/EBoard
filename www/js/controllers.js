@@ -1,24 +1,30 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic'])
 
-.controller('MainCtrl', ['$scope', function($scope) {}])
+.controller('QRCtrl', function($scope, $ionicActionSheet, $timeout) {
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
-})
+    // Triggered on a button click, or some other target
+    $scope.show = function() {
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
+      // Show the action sheet
+      var hideSheet = $ionicActionSheet.show({
+        buttons: [
+          { text: '<b>Take Photo</b>' }
+        ],
+        titleText: 'Get QR Code',
+        cancelText: 'Cancel',
+        cancel: function() {
+             
+           },
+        buttonClicked: function(index) {
+          return true;
+        }
+      });
 
-.controller('BrowseCtrl', function($scope, Posts) {
-  $scope.posts = Posts.all(); 
-})
+     
+      $timeout(function() {
+        hideSheet();
+      }, 10000);
 
-.controller('PostDetailCtrl', function($scope, $stateParams, Posts) {
-  $scope.post = Posts.get($stateParams.postId);
-})
+    };
+});
 
-;
