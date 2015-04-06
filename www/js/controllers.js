@@ -28,100 +28,184 @@ angular.module('starter.controllers', ['ionic'])
     };
 })
 
-    .controller('MapCtrl', function($scope, $ionicLoading, $compile) {
-      function initialize() {
-        var site = new google.maps.LatLng(55.9879314,-4.3042387);
-        var hospital = new google.maps.LatLng(55.8934378,-4.2201905);
-      
-        var mapOptions = {
-          streetViewControl:true,
-          center: site,
-          zoom: 18,
-          mapTypeId: google.maps.MapTypeId.TERRAIN
-        };
-        var map = new google.maps.Map(document.getElementById("map"),
-            mapOptions);
-        
-        //Marker + infowindow + angularjs compiled ng-click
-        var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-        var compiled = $compile(contentString)($scope);
+.controller('MapCtrl', ['$scope','$ionicPlatform', '$location',
+	function($scope, $ionicPlatform, $location) {
 
-        var infowindow = new google.maps.InfoWindow({
-          content: compiled[0]
-        });
+	// init gps array
+    $scope.whoiswhere = [];
+    $scope.basel = { lat: 47.55633987116614, lon: 7.576619513223015 };
 
-        var marker = new google.maps.Marker({
-          position: site,
-          map: map,
-          title: 'Strathblane (Job Location)'
-        });
-        
-        var hospitalRoute = new google.maps.Marker({
-          position: hospital,
-          map: map,
-          title: 'Hospital (Stobhill)'
-        });
-        
-        var infowindow = new google.maps.InfoWindow({
-             content:"Project Location"
-        });
 
-        infowindow.open(map,marker);
-        
-        var hospitalwindow = new google.maps.InfoWindow({
-             content:"Nearest Hospital"
-        });
+    // check login code
+	$ionicPlatform.ready(function() {
+            navigator.geolocation.getCurrentPosition(function(position) {
+		    $scope.position=position;
+	        var c = position.coords;
+	        $scope.gotoLocation(c.latitude, c.longitude);
+		    $scope.$apply();
+		    },function(e) { console.log("Error retrieving position " + e.code + " " + e.message) });
+	    $scope.gotoLocation = function (lat, lon) {
+	        if ($scope.lat != lat || $scope.lon != lon) {
+	            $scope.basel = { lat: lat, lon: lon };
+	            if (!$scope.$$phase) $scope.$apply("basel");
+				}
+			};
 
-        hospitalwindow.open(map,hospitalRoute);
-       
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.open(map,marker);
-        });
+		    // some points of interest to show on the map
+		    // to be user as markers, objects should have "lat", "lon", and "name" properties
+		    $scope.whoiswhere = [
+		        { "name": "My Marker", "lat": $scope.basel.lat, "lon": $scope.basel.lon },
+				];
 
-        $scope.map = map;
-        
-        var directionsService = new google.maps.DirectionsService();
-        var directionsDisplay = new google.maps.DirectionsRenderer();
+			});
 
-        var request = {
-            origin : site,
-            destination : hospital,
-            travelMode : google.maps.TravelMode.DRIVING
-        };
-        directionsService.route(request, function(response, status) {
-            if (status == google.maps.DirectionsStatus.OK) {
-                directionsDisplay.setDirections(response);
+}])
+.filter('lat', function () {
+    return function (input, decimals) {
+        if (!decimals) decimals = 0;
+        input = input * 1;
+        var ns = input > 0 ? "N" : "S";
+        input = Math.abs(input);
+        var deg = Math.floor(input);
+        var min = Math.floor((input - deg) * 60);
+        var sec = ((input - deg - min / 60) * 3600).toFixed(decimals);
+        return deg + "°" + min + "'" + sec + '"' + ns;
+    }
+})
+.filter('lon', function () {
+    return function (input, decimals) {
+        if (!decimals) decimals = 0;
+        input = input * 1;
+        var ew = input > 0 ? "E" : "W";
+        input = Math.abs(input);
+        var deg = Math.floor(input);
+        var min = Math.floor((input - deg) * 60);
+        var sec = ((input - deg - min / 60) * 3600).toFixed(decimals);
+        return deg + "°" + min + "'" + sec + '"' + ew;
+    }
+})
+.directive("appMap", function ($window) {
+    return {
+        restrict: "E",
+        replace: true,
+        template: "<div></div>",
+        scope: {
+            center: "=",        // Center point on the map (e.g. <code>{ latitude: 10, longitude: 10 }</code>).
+            markers: "=",       // Array of map markers (e.g. <code>[{ lat: 10, lon: 10, name: "hello" }]</code>).
+            width: "@",         // Map width in pixels.
+            height: "@",        // Map height in pixels.
+            zoom: "@",          // Zoom level (one is totally zoomed out, 25 is very much zoomed in).
+            mapTypeId: "@",     // Type of tile to show on the map (roadmap, satellite, hybrid, terrain).
+            panControl: "@",    // Whether to show a pan control on the map.
+            zoomControl: "@",   // Whether to show a zoom control on the map.
+            scaleControl: "@"   // Whether to show scale control on the map.
+        },
+        link: function (scope, element, attrs) {
+            var toResize, toCenter;
+            var map;
+            var infowindow;
+            var currentMarkers;
+            var callbackName = 'InitMapCb';
+
+            scope.markers = {"lat":"39.040677","lon":"-94.574427","name":"bushy"};
+            // callback when google maps is loaded
+            $window[callbackName] = function() {
+                console.log("map: init callback");
+                createMap();
+                updateMarkers();
+            };
+
+            if (!$window.google || !$window.google.maps ) {
+                console.log("map: not available - load now gmap js");
+                loadGMaps();
+            }else{
+                console.log("map: IS available - create only map now");
+                createMap();
             }
-        });
+            function loadGMaps() {
+                console.log("map: start loading js gmaps");
+                var script = $window.document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = 'http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&callback=InitMapCb';
+                $window.document.body.appendChild(script);
+            }
 
-        directionsDisplay.setMap(map); 
-       
-      }
-  
-      google.maps.event.addDomListener(window, 'load', initialize);
-    
-      $scope.centerOnMe = function() {
-        if(!$scope.map) {
-          return;
-        }
+            function createMap() {
+                console.log("map: create map start");
+                var mapOptions = {
+                    zoom: 12,
+                    center: new google.maps.LatLng(39.066814,-94.583535),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    panControl: true,
+                    zoomControl: true,
+                    mapTypeControl: true,
+                    scaleControl: false,
+                    streetViewControl: false,
+                    navigationControl: true,
+                    disableDefaultUI: true,
+                    overviewMapControl: true
+                };
+                if (!(map instanceof google.maps.Map)) {
+                    console.log("map: create map now as not already available ");
+                    map = new google.maps.Map(element[0], mapOptions);
+                    // EDIT Added this and it works on android now
+                    // Stop the side bar from dragging when mousedown/tapdown on the map
+                    google.maps.event.addDomListener(element[0], 'mousedown', function(e) {
+                        e.preventDefault();
+                        return false;
+                    });
+                    infowindow = new google.maps.InfoWindow(); 
+                }
+            }
 
-        $scope.loading = $ionicLoading.show({
-          content: 'Getting current location...',
-          showBackdrop: false
-        });
-        navigator.geolocation.getCurrentPosition(function(pos) {
-          $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-          $scope.loading.hide();
-        }, function(error) {
-          alert('Unable to get location: ' + error.message);
-        });
-      };
-      
-      $scope.clickTest = function() {
-        alert('Example of infowindow with ng-click')
-      };
-      
-    })
+            scope.$watch('markers', function() {
+                updateMarkers();
+            });
+
+            // Info window trigger function 
+            function onItemClick(pin, label, datum, url) { 
+                // Create content  
+                var contentString = "Name: " + label + "<br />Time: " + datum;
+                // Replace our Info Window's content and position
+                infowindow.setContent(contentString);
+                infowindow.setPosition(pin.position);
+                infowindow.open(map)
+                google.maps.event.addListener(infowindow, 'closeclick', function() {
+                    //console.log("map: info windows close listener triggered ");
+                    infowindow.close();
+                });
+            } 
+
+            function markerCb(marker, member, location) {
+                return function() {
+                    //console.log("map: marker listener for " + member.name);
+                    var href="http://maps.apple.com/?q="+member.lat+","+member.lon;
+                    map.setCenter(location);
+                    onItemClick(marker, member.name, member.date, href);
+                };
+            }
+            // update map markers to match scope marker collection
+            function updateMarkers() {
+                if (map && scope.markers) {
+                    // create new markers
+                    //console.log("map: make markers ");
+                    currentMarkers = [];
+                    var markers = scope.markers;
+                    console.log(scope.markers);
+                    if (angular.isString(markers)) markers = scope.$eval(scope.markers);
+                    for (var i = 0; i < markers.length; i++) {
+                        var m = markers[i];
+                        var loc = new google.maps.LatLng(m.lat, m.lon);
+                        var mm = new google.maps.Marker({ position: loc, map: map, title: m.name });
+                        //console.log("map: make marker for " + m.name);
+                        google.maps.event.addListener(mm, 'click', markerCb(mm, m, loc));
+                        currentMarkers.push(mm);
+                    }
+                }
+            }
+        } // end of link:
+    }; // end of return
+})
 
 
 
