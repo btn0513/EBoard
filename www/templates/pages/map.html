@@ -1,13 +1,13 @@
-<ion-view>
+<ion-view title="Map">
 
-    <ion-header-bar align-title="center" class="bar-positive">
-        <button class="button button-clear icon ion-chevron-left" ui-sref="mainlocs">
-            Back
-        </button>
-        <h1 class="title">Maps</h1>
+  <ion-header-bar class="bar-dark" >
+      <h1 class="title">Google Maps Example</h1>
     </ion-header-bar>
-
     <ion-content>
-        <p>maps n stuff</p>
+      <div id="map" data-tap-disabled="true"></div>
     </ion-content>
+    <ion-footer-bar class="bar-dark">
+      <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
+    </ion-footer-bar>
+
 </ion-view>
