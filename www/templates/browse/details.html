@@ -1,54 +1,53 @@
 <ion-view title="Details">
   <ion-nav-buttons side="secondary">
-    <button class="button button-icon icon ion-ios-location" ng-click=""></button>
   </ion-nav-buttons>
 
-  <ion-content class="has-header" scroll="false" style="background-color: #F0F0F0;">
-<ion-scroll>
-    <ion-slide-box style="background-color: #CFDFEC;">
+  <ion-content class="has-header" style="background-color: #FAFAFA;">
 
-      <ion-slide style="text-align:center; height:260px;">
+      <div class="item item-image" style="text-align:center; height:260px;">
         <a href="" class="item item-image">
           <img class="full-image" ng-src="{{post.img}}">
         </a>
-      </ion-slide>
-
-      <ion-slide style="text-align:center;">
-        <a href="" class="item item-image" style="height:260px;">
-          <img class="full-image" ng-src="{{post.img}}">
-        </a>
-      </ion-slide>
-
-      <ion-slide style="text-align:center;">
-        <a href="" class="item item-image" style="height:260px;">
-          <img class="full-image" ng-src="{{post.img}}">
-        </a>
-      </ion-slide>
-    </ion-slide-box>
-
-    <h3 style="text-align:center;">{{post.title}}</h3>
-      <div class="list card" style="margin-bottom:5px;">
-        <div class="item item-body">
-          <p><span class="positive padding" style="font-size: 1.5em;">When </span> {{post.when}}</p>
-          <p><span class="positive padding" style="font-size: 1.5em;">Where </span> {{post.where}}</p>
-          <p>{{post.description}}</p>
-        </div>
-        <div class="item tabs">
-          <a class="tab-item" href="#">
-            <i class="icon ion-pin"></i>
-          </a>
-          <a class="tab-item" href="#">
-            <i class="icon ion-android-share-alt"></i>
-          </a>
-          <a class="tab-item" href="#">
-            <i class="icon ion-ios-undo"></i>
-          </a>
-        </div>
       </div>
-      <div class="padding">
-      <h5 style="text-align:right; margin:0;">Posted by {{post.postedAuthor}}</h5>
-      <h5 style="text-align:right; margin:0;">{{post.postedDate}}</h5>
+
+      <!-- this section is the title section of the details -->
+    <div class="item item-body" style="height:110px;box-shadow:0 1px 5px grey;">
+    <p style="text-align:center; font-size:1.3em;">{{post.title}}</p>
+    <div class="item-icon-left item-icon-right">
+      <i style="font-size: small; padding-bottom:80px; color:#8D8D8D;" class="icon ion-ios-star">100</i>
+      <i style="font-size: small; padding-bottom:80px; color:#8D8D8D;" class="icon ion-ios-time">4hr</i>
+  </div>
+      <div class="row">
+        <p class="col col-offset-10" style="position:relative;top:-25px;color:#0A3CB6">CONTACT</p>
+        <p class="col col-offset-33" style="position:relative;top:-25px;color:#3ABA30" >SHARE</p>
       </div>
-      </
+   </div>
+
+   <div> <!-- div container for body-->
+        <!-- Date and time of event -->
+        <p class="ion-ios-clock" style="font-size:XX-large; margin:20px 0px 0px 17px; color:#71D472;">
+          <span style="font-size: .6em; position:relative;top:-5px; margin: 0px 0px 5px 20px; color:black;"> {{post.when}}</span></p>
+
+        <!-- location of event -->
+        <p class="ion-ios-location" style="font-size:XX-large; margin:20px 0px 0px 20px; color:#A1887F;">
+          <span style="font-size: .6em; position:relative;top:-5px; margin: 0px 0px 5px 20px; color:black;"> {{post.where}}</span></p>
+      <div class="row">
+        <div class="col col-10"></div>
+        <div class="item item-image" style="margin:10px 15px 25px 25px;"> <!-- using filler image for now -->
+        <img class="full-image" src="img/map.png"></img> <!-- need to implement map api to display the location here -->
+        </div>
+     </div>
+
+     <!-- description of event-->
+     <p class="ion-ios-paper" style="font-size:XX-large; margin:-10px 0px 0px 18px; color:#F48FB1;">
+       <span style="font-size: .4em; position:relative;top:-5px; margin: 0px 0px 5px 20px; color:black;"> {{post.description}}</span></p>
+
+      <!-- poster info goes here -->
+     <p class="ion-ios-person" style="font-size:XX-large; margin:20px 0px 0px 18px; color:#4E6CEF;">
+        <span style="font-size: .4em; position:relative;top:-15px; margin: 0px 0px 5px 25px; color:black;"> Posted By {{post.postedAuthor}}</span>
+        <br/>
+        <span style="font-size: .3em; position:relative;top: -27px; margin: 0px 0px 5px 54px; color:black;"> {{post.postedDate}}</span>
+        </p>
+      </div>
   </ion-content>
 </ion-view>

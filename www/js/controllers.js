@@ -14,7 +14,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('BrowseCtrl', function($scope, Posts) {
-  $scope.posts = Posts.all(); 
+  $scope.posts = Posts.all();
 })
 
 .controller('PostDetailCtrl', function($scope, $stateParams, Posts) {
