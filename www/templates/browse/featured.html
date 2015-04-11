@@ -2,16 +2,16 @@
 
   <div class="col" ng-if="$index < posts.length">
     <div class="list card" style="box-shadow:0 1px 5px black; margin:0;">
-	  <a class="item item-image" href="#/browse/details/{{posts[$index].id}}" style="height:150px;">
-		<img class="full-image" ng-src="{{posts[$index].img}}">
-	  </a>
-    <div class="item item-divider text-center " Style="height:50px;">
-	   <p style="font-size: small;">  {{posts[$index].title}} </p>
-		<div class="item-icon-left item-icon-right">
-      <i style="font-size: small; padding-top:30px;" class="icon ion-pin"></i>
-      <i style="font-size: x-small; padding-top:30px;" class="icon ion-ios-time">4hr</i>
-  </div>
-    </div>
+        <a class="item item-image" href="#/browse/details/{{post.id}}" style="height:150px;">
+            <img class="full-image" ng-src="{{post.img}}">
+        </a>
+        <div class="item item-divider text-center " Style="height:50px;">
+            <p style="font-size: small;">  {{post.title}} </p>
+            <div class="item-icon-left item-icon-right">
+                <i style="font-size: small; padding-top:30px;" class="icon ion-pin"></i>
+                <i style="font-size: x-small; padding-top:30px;" class="icon ion-ios-time">4hr</i>
+            </div>
+        </div>
     </div>
   </div>
   <div class="col" ng-if="$index + 1 < posts.length">

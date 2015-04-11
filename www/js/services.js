@@ -48,7 +48,7 @@ angular.module('starter.services', [])
   };
 })
 
-.factory('Posts', function() {
+.factory('Posts', function($http) {
     // Might use a resource here that returns a JSON array
     // Some fake testing data
     var posts =
@@ -154,7 +154,10 @@ angular.module('starter.services', [])
           }
         }
         return null;
-      }
+      },
+      getPosts: function() {
+            return $http.get('http://banana-cobbler-6505.herokuapp.com/api/v1/listings.json');
+        }
     };
   })
 

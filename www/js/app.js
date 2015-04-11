@@ -49,7 +49,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: "/featured",
       views: {
         'browsing' :{
-          templateUrl: "templates/browse/featured.html"
+          templateUrl: "templates/browse/featured.html",
+          controller: 'featuredCtrl'
         }
       }
     })
