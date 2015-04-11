@@ -23,38 +23,32 @@ angular.module('starter.controllers', [])
 
     var handleSuccess = function(data, status) {
         $scope.posts = data;
-        console.log("heres the posts");
-        console.log(data);
     };
     var handleError = function(data, status) {
-        console.log("error with post get");
+        console.log("error getting posts");
         console.log(data);
     };
 
     Posts.getPosts().success(handleSuccess).error(handleError);
 })
 
-.controller('PostDetailCtrl', function($scope, $stateParams, Posts) {
-    //$scope.post = Posts.get($stateParams.postId);
-    
-   /* $scope.post = [];
+.controller('PostDetailCtrl', function($scope, $stateParams, Posts) {    
+    $scope.post = null;
 
     var handleSuccess = function(data, status) {
-       
         for (var i = 0; i < data.length; i++) {
-          if (data[i].id === parseInt($stateParams.postId)) {
+             console.log(data[i].id);
+          if (data[i].id === $stateParams.postId) {
              $scope.post = data[i];
           }
         }
-        console.log(data[0]);
     };
     var handleError = function(data, status) {
-        $scope.posterr = data;
-        console.log("error with post get")
-        console.log($scope.posterr);
+        console.log("error getting posts");
+        console.log(data);
     };
 
-    Posts.getPosts().success(handleSuccess).error(handleError);*/
+    Posts.getPosts().success(handleSuccess).error(handleError);
   
 })
 
