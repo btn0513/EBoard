@@ -33,9 +33,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       abstract: true,
       templateUrl: "templates/pages/home.html"
     })
-    
+
     //**************     BROWSE PAGE     *******************************
-    
+
     .state('home.browse', { //  url#/browse
       url: "browse",
       views: {
@@ -49,7 +49,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: "/featured",
       views: {
         'browsing' :{
-          templateUrl: "templates/browse/featured.html"
+          templateUrl: "templates/browse/featured.html",
+          controller: 'featuredCtrl'
         }
       }
     })
@@ -59,14 +60,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         'browse' :{
           templateUrl: "templates/browse/details.html",
           controller: 'PostDetailCtrl'
-        }
-      }
-    })
-    .state('home.browse.following', { //  url#/browse/following
-      url: "/following",
-      views: {
-        'browsing' :{
-          templateUrl: "templates/browse/following.html"
         }
       }
     })
@@ -94,9 +87,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    
+
     //**************     CHAT PAGE     *******************************
-    
+
     .state('home.chat', { //  url#/chat
       url: "chat",
       views: {
@@ -114,9 +107,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    
+  //********* Pin Page ************
+    .state('home.pin',{
+      url:"pin",
+      views:{
+        'pin':{
+          templateUrl:"templates/pin/pin.html"
+        }
+      }
+    })
+
     //**************     PROFILE PAGE     *******************************
-    
+
     .state('home.profile', { //  url#/profile
       url: "profile",
       views: {
@@ -125,9 +127,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    
+
     //**************     POST PAGE     *******************************
-    
+
     .state('home.post', { //  url#/post
       url: "post",
       views: {
@@ -136,7 +138,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    
+
     ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/browse/featured');

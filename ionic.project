@@ -1,6 +1,6 @@
 {
   "name": "EBoard",
-  "app_id": "",
+  "app_id": "beaefbb3",
   "gulpStartupTasks": [
     "sass",
     "watch"
