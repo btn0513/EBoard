@@ -5,8 +5,8 @@
 </ion-nav-bar>
   <ion-content style="top:0;background-color: #FAFAFA;">
 
-      <div ng-controller="detailsModal" class="item item-image" style="text-align:center; height:260px;">
-        <a ng-click="modal.show()" class="item item-image">
+      <div ng-controller="PicsCtrl" class="item item-image" style="text-align:center; height:260px;">
+        <a ng-click="openModal()" class="item item-image">
           <img class="full-image" ng-src="{{post.images[0]}}">
         </a>
       </div>

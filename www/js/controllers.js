@@ -44,38 +44,34 @@ angular.module('starter.controllers', [])
         }
     };
     var handleError = function(data, status) {
-        console.log("error getting posts");
+        console.log("error getting posts" );
         console.log(data);
     };
 
     Posts.getPosts().success(handleSuccess).error(handleError);
 
 })
-// Modal controller for Details page
-.controller('detailsModal', function($scope, $ionicModal) {
-  $ionicModal.fromTemplateUrl('templates/browse/my-modal.html', {
+// Picture controller in the detail page
+.controller('PicsCtrl', function($scope, $ionicModal) {
+
+  $ionicModal.fromTemplateUrl('templates/browse/image-popover.html', {
     scope: $scope,
-    animation: 'slide-in-up'
+    animation: 'fade-in'
   }).then(function(modal) {
-    $scope.modal = modal;
-  });
+      $scope.modal = modal;
+  })
+
   $scope.openModal = function() {
     $scope.modal.show();
   };
+
   $scope.closeModal = function() {
     $scope.modal.hide();
   };
+
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {
-    $scope.modal.remove();
-  });
-  // Execute action on hide modal
-  $scope.$on('modal.hidden', function() {
-    // Execute action
-  });
-  // Execute action on remove modal
-  $scope.$on('modal.removed', function() {
-    // Execute action
+    
   });
 });
 
