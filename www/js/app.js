@@ -54,6 +54,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+    // details page
     .state('home.details', { //  url#/featured/details
       url: "browse/details/:postId",
       views: {
@@ -107,12 +108,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-  //********* Pin Page ************
-    .state('home.pin',{
-      url:"pin",
+  //********* saved Page ************
+    .state('home.saved',{
+      url:"saved",
       views:{
-        'pin':{
-          templateUrl:"templates/pin/pin.html"
+        'saved':{
+          templateUrl:"templates/saved/saved.html"
         }
       }
     })

@@ -14,7 +14,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('BrowseCtrl', function($scope) {
-  
+
 
 })
 
@@ -32,7 +32,7 @@ angular.module('starter.controllers', [])
     Posts.getPosts().success(handleSuccess).error(handleError);
 })
 
-.controller('PostDetailCtrl', function($scope, $stateParams, Posts) {    
+.controller('PostDetailCtrl', function($scope, $stateParams, Posts) {
     $scope.post = null;
 
     var handleSuccess = function(data, status) {
@@ -49,7 +49,34 @@ angular.module('starter.controllers', [])
     };
 
     Posts.getPosts().success(handleSuccess).error(handleError);
-  
+
 })
+// Modal controller for Details page
+.controller('detailsModal', function($scope, $ionicModal) {
+  $ionicModal.fromTemplateUrl('templates/browse/my-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function() {
+    // Execute action
+  });
+});
 
 ;
