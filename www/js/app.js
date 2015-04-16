@@ -50,7 +50,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'browsing' :{
           templateUrl: "templates/browse/featured.html",
-          controller: 'featuredCtrl'
+          controller: 'FeaturedCtrl'
         }
       }
     })
@@ -89,25 +89,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    //**************     CHAT PAGE     *******************************
-
-    .state('home.chat', { //  url#/chat
-      url: "chat",
-      views: {
-        'chat' :{
-          templateUrl: "templates/chat/chat.html",
-          controller: 'ChatsCtrl'
-        }
-      }
-    }).state('home.chating', { //  url#/chat/:chatId
-      url: "chat/:chatId",
-      views: {
-        'chat' :{
-          templateUrl: "templates/chat/chating.html",
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
   //********* saved Page ************
     .state('home.saved',{
       url:"saved",
