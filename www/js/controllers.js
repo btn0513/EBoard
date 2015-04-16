@@ -52,7 +52,11 @@ angular.module('starter.controllers', [])
 
 })
 // Picture controller in the detail page
-.controller('PicsCtrl', function($scope, $ionicModal) {
+.controller('PicsCtrl', function($scope, $ionicModal, $ionicSlideBoxDelegate) {
+  
+  $scope.navSlide = function(index) {
+    $ionicSlideBoxDelegate.slide(index, 500);
+  }
 
   $ionicModal.fromTemplateUrl('templates/browse/image-popover.html', {
     scope: $scope,
