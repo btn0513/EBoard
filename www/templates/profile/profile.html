@@ -1,34 +1,45 @@
-<ion-view title="Profile">
-    <ion-content has-header="true" padding="true" style="background-color:#EDEDED;">
+<ion-view>
+  <ion-nav-bar class="bar-clear">
+  </ion-nav-bar>
+    <ion-content has-header="true" padding="" style="top:0;background-color:#EDEDED;">
 
+      <!-- this section displays picture and quick info on user -->
+      <div class="item" style="background-color:#416f98;" >
+        <!--name-->
+        <h2 class="text-center" style="font-size:1.5em;color: white;">This Dude </h2>
+          <!-- dummy source for pictures inject facebook profile pic here -->
           <img id="profile-image" src="img/guy.png"></img>
-
-          <div class="text-center">
-              <h3 style="padding-top:8px;">This Dude </h3> <!--name-->
-              <h5>Sophomore Engineering Student / IEEE president</h5>
-              <div class="row" style="position: relative; top:-16px;">
-              <h5 class="col col-25 col-offset-25 ">10 posts</h5><h5 class="col col-25">15 saved </h5>
+          <div class="text-center" style="color: white;">
+              <!-- title of the user. This is just dummy data. implement feature so they can customize in seetings -->
+              <h3 style="padding-top:8px;color: white;">Sophomore Engineering Student / IEEE president</h3>
+              <div class="row">
+                <!-- qauntity of post and saved they have.. pull this data from database -->
+              <h3 style="color: white;"class="col col-offset-25 ">2 posts</h3><h3 style="color: white;" class="col">2 saved </h3>
             </div>
         </div>
-        <div>
-          <h4>My Posts</h4>
+      </div>
+
+          <!-- this section should display what they post-->
+          <h5 style="padding-left:30px;color:#818181;">My Postings</h5>
           <div class="row">
-            <!-- this is just dummy data need to connect it with the server -->
+            <!-- this is just dummy data need to pull info from database -->
             <div class="list cards col col-50">
               <div class="list card" style="box-shadow:0 1px 5px black; border-radius: 4px; margin:0;">
-              <a class="item item-image" href="" style="height:150px;">
-              <img class="full-image" src="img/event7.jpg">
-              </a>
+                  <a class="item item-image" href="" style="height:150px;">
+                      <img class="full-image" src="img/event7.jpg">
+                  </a>
+              <!--- this is footer for the card -->
               <div class="item item-divider text-center " Style="height:50px;">
-               <p style="font-size: small;">  stuff </p>
-              <div class="item-icon-left item-icon-right">
-              <i style="font-size: x-small; padding-top:30px;" class="icon ion-ios-star">100</i>
-              <i style="font-size: x-small; padding-top:30px;" class="icon ion-ios-time">4hr</i>
-            </div>
+                  <p style="font-size: small;">  stuff </p>
+                  <div class="item-icon-left item-icon-right">
+                      <i style="font-size: x-small; padding-top:30px;" class="icon ion-ios-star">100</i>
+                      <i style="font-size: x-small; padding-top:30px;" class="icon ion-ios-time">4hr</i>
+                  </div>
               </div>
             </div>
             </div>
-            <!-- this is just dummy data need to connect it with the server -->
+
+            <!-- same filler from above -->
             <div class="list cards col col-50">
               <div class="list card" style="box-shadow:0 1px 5px black; border-radius: 4px; margin:0;">
               <a class="item item-image" href="" style="height:150px;">
@@ -43,6 +54,7 @@
               </div>
               </div>
             </div>
+
         </div>
     </ion-content>
 </ion-view>
