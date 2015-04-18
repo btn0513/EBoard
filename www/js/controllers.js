@@ -107,7 +107,12 @@ angular.module('starter.controllers', ['ionic'])
             var currentMarkers;
             var callbackName = 'InitMapCb';
 
-            scope.markers = {"lat":"39.040677","lon":"-94.574427","name":"bushy"};
+            scope.markers = [
+                {"lat":"39.040677","lon":"-94.574427","name":"Anita B Gorman Discovery & Conservation Center"},
+                {"lat":"39.094057","lon":"-94.604697","name":"Plug Projects"},
+                {"lat":"39.085255","lon":"-94.586066","name":"Union Station & Science City"},
+                {"lat":"39.088249","lon":"-94.585216","name":"Mid-America Arts Alliance"},
+            ];
             // callback when google maps is loaded
             $window[callbackName] = function() {
                 console.log("map: init callback");
@@ -165,7 +170,7 @@ angular.module('starter.controllers', ['ionic'])
             // Info window trigger function 
             function onItemClick(pin, label, datum, url) { 
                 // Create content  
-                var contentString = "Name: " + label + "<br />Time: " + datum;
+                var contentString = "Name: " + label;
                 // Replace our Info Window's content and position
                 infowindow.setContent(contentString);
                 infowindow.setPosition(pin.position);
