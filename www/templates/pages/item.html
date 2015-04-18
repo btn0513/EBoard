@@ -24,21 +24,9 @@
             <h1><b>Found it?</b></h1>
             <p>
                 Take picture of the QR code
-              <input type="file" accept="image/*" capture="camera" id="input">
             </p>
-            <form id="result">
-              <fieldset>
-                <legend>Result</legend>
-                <p>
-                  <label for="url">URL</label>
-                  <textarea id="url" rows="2" wrap="hard" readonly></textarea>
-                </p>
-              </fieldset>
-            </form>
-
-            <div class="image-container">
-                  <img src="" id="image">
-            </div>
+            
+    <qr-scanner width="400" height="300" ng-success="onSuccess(data)" ng-error="onError(error)" />
           <!--button style="width:200px;" class="button button-large button-positive icon ion-ios-camera"
                   ng-click="show()" i></button-->
         </div>
