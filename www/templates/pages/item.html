@@ -1,32 +1,52 @@
 <ion-view>
-    <ion-header-bar align-title="center" class="bar-positive">
+    <ion-header-bar align-title="center" class="bar-balanced">
           <button class="button button-clear icon-left ion-chevron-left"
-                  ui-sref="subloc({lid: 2})" i>Back</button>
+                  ui-sref="subloc({lid: 2})">Back</button>
         <h1 class="title">Item Name</h1>
           <button class="button button-clear icon-right ion-ios-home"
-                  ui-sref="home" i></button>
+                  ui-sref="home"></button>
     </ion-header-bar>
     <ion-content>
-        <div class="list card">
-            <div class="item item-body center">
-                <div style="max-width:500px;max-height:500px" class="item item-image">
-                    <img class="full-image" src="img/lichen1x.jpg">
+        <div class="list card" style="margin:2em;">
+
+            <div class="item item-body">
+                <img class="full-image" src="img/lichen1.jpg">
+                
+                <div class="padding">
+                  <h1 style="text-align:left;">Hint</h1>
+                  <p>
+                      This can be found hanging high above with a sunny
+                      disposition. They were named in Latin for their
+                      "slit-end" appearance.
+                  </p>
                 </div>
-                <h1 style="text-align:left;"><b>Hint:</b></h1>
-                <p>
-                    This can be found hanging high above with a sunny
-                    disposition. They were named in Latin for their
-                    "slit-end" appearance.
-                </p>
             </div>
+
         </div>
+        
         <div ng-controller="QRCtrl" class="col" style="text-align:center;">
             <h1><b>Found it?</b></h1>
             <p>
                 Take picture of the QR code
             </p>
+<<<<<<< HEAD
             
     <qr-scanner width="400" height="300" ng-success="onSuccess(data)" ng-error="onError(error)" />
+=======
+            <form id="result">
+              <fieldset>
+                <legend>Result</legend>
+                <p>
+                  <label for="url">URL</label>
+                  <textarea id="url" rows="2" wrap="hard" readonly></textarea>
+                </p>
+              </fieldset>
+            </form>
+    
+            <div class="image-container">
+                  <img src="" id="image">
+            </div>
+>>>>>>> b6c847f3b8328f3ebeb349019fabe522a260d640
           <!--button style="width:200px;" class="button button-large button-positive icon ion-ios-camera"
                   ng-click="show()" i></button-->
         </div>
