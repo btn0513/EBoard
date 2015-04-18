@@ -1,25 +1,29 @@
 <ion-view>
     <ion-header-bar align-title="center" class="bar-balanced">
           <button class="button button-clear icon-left ion-chevron-left"
-                  ui-sref="subloc({lid: 2})" i>Back</button>
+                  ui-sref="subloc({lid: 2})">Back</button>
         <h1 class="title">Item Name</h1>
           <button class="button button-clear icon-right ion-ios-home"
-                  ui-sref="home" i></button>
+                  ui-sref="home"></button>
     </ion-header-bar>
     <ion-content>
-        <div class="list card">
-            <div class="item item-body center">
-                <div style="max-width:500px;max-height:500px" class="item item-image">
-                    <img class="full-image" src="img/lichen1.jpg">
+        <div class="list card" style="margin:2em;">
+
+            <div class="item item-body">
+                <img class="full-image" src="img/lichen1.jpg">
+                
+                <div class="padding">
+                  <h1 style="text-align:left;">Hint</h1>
+                  <p>
+                      This can be found hanging high above with a sunny
+                      disposition. They were named in Latin for their
+                      "slit-end" appearance.
+                  </p>
                 </div>
-                <h1 style="text-align:left;"><b>Hint:</b></h1>
-                <p>
-                    This can be found hanging high above with a sunny
-                    disposition. They were named in Latin for their
-                    "slit-end" appearance.
-                </p>
             </div>
+
         </div>
+        
         <div ng-controller="QRCtrl" class="col" style="text-align:center;">
             <h1><b>Found it?</b></h1>
             <p>
@@ -35,7 +39,7 @@
                 </p>
               </fieldset>
             </form>
-
+    
             <div class="image-container">
                   <img src="" id="image">
             </div>
