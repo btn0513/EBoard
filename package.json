@@ -22,6 +22,7 @@
   "license": "ISC",
   "cordovaPlugins": [],
   "cordovaPlatforms": [
-    "ios"
+    "ios",
+    "android"
   ]
 }
