@@ -63,6 +63,30 @@ angular.module('starter.controllers', [])
   $scope.$on('$destroy', function() {
     
   });
-});
+})
+
+// Picture controller in the detail page
+.controller('MapCtrl', function($scope, $ionicModal) {
+
+  $ionicModal.fromTemplateUrl('templates/browse/gmap-popover.html', {
+    scope: $scope,
+    animation: 'fade-in'
+  }).then(function(modal) {
+      $scope.modal = modal;
+  })
+
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    
+  });
+})
 
 ;

@@ -1,54 +1,57 @@
 <ion-view>
-<ion-nav-bar class="bar-clear">
-  <ion-nav-back-button>
-  </ion-nav-back-button>
-</ion-nav-bar>
-  <ion-content style="top:0;background-color: #FAFAFA;">
+  <ion-nav-bar class="bar-clear">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content style="top:0;">
 
-      <div ng-controller="PicsCtrl" class="item item-image" style="text-align:center; height:260px;">
-        <a ng-click="openModal()" class="item item-image">
-          <img class="full-image" ng-src="{{post.images[0]}}">
-        </a>
-      </div>
+    <div ng-controller="PicsCtrl" class="item item-image" style="height:260px;">
+      <a ng-click="openModal()">
+        <img ng-src="{{post.images[0]}}">
+      </a>
+    </div>
 
-      <!-- this section is the title section of the details -->
+    <!-- Top Section -->
     <div class="item item-body" style="height:110px;box-shadow:0 1px 5px grey;">
-    <p style="text-align:center; font-size:1.3em;">{{post.title}}</p>
-    <div class="item-icon-left item-icon-right">
+      <p style="text-align:center; font-size:1.3em;">{{post.title}}</p>
+      <div class="item-icon-left item-icon-right">
         <i style="font-size: large; padding-bottom:80px; color:#8D8D8D;" class="icon ion-ios-star">{{post.saved}}</i>
         <i style="font-size: large; padding-bottom:80px; color:#8D8D8D;" class="icon ion-ios-camera"></i>
-    </div>
+      </div>
       <div class="row">
         <p class="col col-offset-10" style="position:relative;top:-25px;color:#0A3CB6">CONTACT</p>
         <p class="col col-offset-33" style="position:relative;top:-25px;color:#3ABA30" >SHARE</p>
       </div>
-   </div>
+    </div>
+    
+    <!-- Detail section -->
+    <div>
+      <!-- Date and time -->
+      <i class="ion-ios-clock" style="font-size:XX-large; margin:0px 0px 0px 18px;position:relative;top:20px; color:#71D472;"></i>
+      <p style="font-size: 1.3em; position:relative;top:-30px; margin: 23px 10px 0px 65px; color:black;"> {{post.date}}</p>
 
-   <div> <!-- div container for body-->
-        <!-- Date and time of event -->
-        <i class="ion-ios-clock" style="font-size:XX-large; margin:0px 0px 0px 18px;position:relative;top:20px; color:#71D472;"></i>
-        <p style="font-size: 1.3em; position:relative;top:-30px; margin: 23px 10px 0px 65px; color:black;"> {{post.date}}</p>
-
-        <!-- location of event -->
-        <i class="ion-ios-location" style="font-size:XX-large; margin:0px 0px 0px 18px;position:relative;top:20px; color:#A1887F;"></i>
-        <p style="font-size: 1.3em; position:relative;top:-30px; margin: 23px 10px 5px 65px; color:black;"> {{post.location}}</p>
-          <div class="row">
-            <div class="col col-10"></div>
-              <div class="item item-image" style="margin:0px 15px 25px 25px;"> <!-- using filler image for now -->
-              <img class="full-image" src="img/Map.png"></img> <!-- need to implement map api to display the location here -->
-              </div>
+      <!-- Event location -->
+      <i class="ion-ios-location" style="font-size:XX-large; margin:0px 0px 0px 18px;position:relative;top:20px; color:#A1887F;"></i>
+      <p style="font-size: 1.3em; position:relative;top:-30px; margin: 23px 10px 5px 65px; color:black;"> {{post.location}}</p>
+      <div class="row">
+        <div class="col col-10"></div>
+          <div ng-controller="MapCtrl" class="item item-image" style="margin:0px 15px 25px 25px;"> <!-- using filler image for now -->
+            <a ng-click="openModal()" class="item item-image">
+              <img class="full-image" src="img/Map.png"></img>
+            </a>
+          </div>
         </div>
+      </div>
 
-     <!-- description of event-->
-     <i class="ion-ios-paper" style="font-size:XX-large; margin:-10px 0px 0px 18px; color:#F48FB1;"></i>
-     <p style="font-size: 1em; position:relative;top:-30px; margin: 0px 15px 5px 65px; color:black;"> {{post.description}}</p>
+      <!-- description -->
+      <i class="ion-ios-paper" style="font-size:XX-large; margin:-10px 0px 0px 18px; color:#F48FB1;"></i>
+      <p style="font-size: 1em; position:relative;top:-30px; margin: 0px 15px 5px 65px; color:black;"> {{post.description}}</p>
 
-      <!-- poster info goes here -->
-     <p class="ion-ios-person" style="font-size:XX-large; margin:0px 0px 0px 13px; color:#4E6CEF;">
+      <!-- poster info -->
+      <p class="ion-ios-person" style="font-size:XX-large; margin:0px 0px 0px 13px; color:#4E6CEF;">
         <span style="font-size: .4em; position:relative;top:-15px; margin: 0px 0px 5px 23px; color:black;"> Posted By {{post.postedAuthor}}</span>
         <br/>
         <span style="font-size: .3em; position:relative;top: -27px; margin: 0px 0px 5px 52px; color:black;"> {{post.date_created}}</span>
-        </p>
-      </div>
+      </p>
+    </div>
   </ion-content>
 </ion-view>
