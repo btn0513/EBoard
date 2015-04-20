@@ -24,5 +24,13 @@
   "cordovaPlatforms": [
     "ios",
     "android"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/btn0513/EBoard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/btn0513/EBoard/issues"
+  },
+  "homepage": "https://github.com/btn0513/EBoard"
 }
