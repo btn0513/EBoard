@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -35,7 +35,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
     //**************     BROWSE PAGE     *******************************
-
     .state('home.browse', { //  url#/browse
       url: "browse",
       views: {
@@ -54,6 +53,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+
     // details page
     .state('home.details', { //  url#/featured/details
       url: "browse/details/:postId",
@@ -100,7 +100,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
     //**************     PROFILE PAGE     *******************************
-
     .state('home.profile', { //  url#/profile
       url: "profile",
       views: {
@@ -111,7 +110,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
     //**************     POST PAGE     *******************************
-
     .state('home.post', { //  url#/post
       url: "post",
       views: {
@@ -121,7 +119,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+    .state('home.post.bulletin', { //  url#/post
+      url: "/postBulletin",
+      views: {
+        'postings' :{
+          templateUrl: "templates/post/post-Bulletin.html"
+        }
+      }
+    })
+
+    .state('home.post.classified', { //  url#/post
+      url: "/postClassified",
+      views: {
+        'postings' :{
+          templateUrl: "templates/post/post-classified.html"
+        }
+      }
+    })
     ;
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/browse/featured');
 

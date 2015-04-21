@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ngCordova'])
 
 .controller('MainCtrl', ['$scope', function($scope) {}])
 
@@ -39,7 +39,7 @@ angular.module('starter.controllers', [])
 })
 // Picture controller in the detail page
 .controller('PicsCtrl', function($scope, $ionicModal, $ionicSlideBoxDelegate) {
-  
+
   $scope.navSlide = function(index) {
     $ionicSlideBoxDelegate.slide(index, 500);
   }
@@ -61,7 +61,7 @@ angular.module('starter.controllers', [])
 
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {
-    
+
   });
 });
 

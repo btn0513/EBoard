@@ -1,27 +1,15 @@
-<ion-view title="Posting">
-    <ion-content has-header="true" padding="true">
-      <div class="list list-inset">
-        <label class="item item-input item-select">
-          <div class="input-label" style="color:grey">
-              Category
-          </div>
-          <select>
-            <option selected>Bulletin</option>
-            <option>Classified</option>
-          </select>
-        </label>
-        <br/>
-        <label class="item item-input">
-          <input type="text" placeholder="Title">
-        </label>
-        <br/>
-        <label class="item item-input">
-          <input type="text" placeholder="When">
-        </label>
-        <br/>
-        <label class="item item-input">
-          <input type="text" placeholder="Where">
-        </label>
-      </div>
+<ion-view title="Post">
+
+  <ion-nav-buttons></ion-nav-buttons> <!-- This code here actually fixes the back button bug! -->
+    <!-- Bulletin and Classified tabs for different fields -->
+  <ion-tabs class="tabs-striped tabs-top tabs-color-positive">
+      <ion-tab title="Bulletin" ui-sref="home.post.bulletin">
+      </ion-tab>
+      <ion-tab title="Classified" ui-sref="home.post.classified">
+      </ion-tab>
+  </ion-tabs>
+
+  <ion-content has-header="true" class="has-tabs-top" padding="true">
+      <div ui-view name="postings"></div>
     </ion-content>
 </ion-view>
