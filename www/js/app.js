@@ -45,22 +45,24 @@ angular.module('starter', ['ionic', 'starter.controllers',
       url: "/about",
       templateUrl: "templates/pages/about.html"
     })
-  .state('mainlocs', {
+  .state('locations', {
       url: "/locations",
-      templateUrl: "templates/pages/mainlocations.html"
+      templateUrl: "templates/pages/locations.html"
     })
   .state('map', {
       controller:"MapCtrl",
       url: "/locations/map",
       templateUrl: "templates/pages/map.html"
     })
-  .state('subloc', {
+  .state('location', {
       url: "/locations/:lid",
-      templateUrl: "templates/pages/sublocation.html"
+      templateUrl: "templates/pages/location.html",
+      controller:"LocCtrl"
     })
-  .state('sublocitem', {
-      url: "/locations/:lid/item/:iid",
-      templateUrl: "templates/pages/item.html"
+  .state('colony', {
+      url: "/locations/:lid/item/:cid",
+      templateUrl: "templates/pages/colony.html",
+      controller:"ColonyCtrl"
     })
 
     ;

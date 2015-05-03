@@ -1,8 +1,8 @@
 <ion-view>
     <ion-header-bar align-title="center" class="bar-balanced">
           <button class="button button-clear icon-left ion-chevron-left"
-                  ui-sref="mainlocs" i>Back</button>
-        <h1 class="title">Location Name</h1>
+                  ui-sref="locations" i>Back</button>
+        <h1 class="title">{{locname}}</h1>
           <button class="button button-clear icon-right ion-ios-home"
                   ui-sref="home" i></button>
     </ion-header-bar>
@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col col-50" >
                 <div class="list card" style="margin:0;">
-                    <a class="item item-image" ui-sref="sublocitem({lid: 2, iid:1})">
+                    <a class="item item-image" ui-sref="colony({lid: {{lid}}, cid:1})">
                         <img src="img/lichen1.jpg" style="height:8em;width:8em;">
                     </a>
                     <p class="item item-text-wrap" style="border:none; padding: 3px; text-align: center;">
@@ -21,7 +21,7 @@
 
             <div class="col col-50" >
                 <div class="list card" style="margin:0; width:100%; height:100%;">
-                    <a class="item item-image" ui-sref="sublocitem({lid: 2, iid:2})">
+                    <a class="item item-image" ui-sref="colony({lid: {{lid}}, cid:2})">
                         <img src="img/lichen2.jpg" style="height:8em;width:8em;">
                     </a>
                     <p class="item item-text-wrap" style="border:none; padding: 3px; text-align: center;">
@@ -34,7 +34,7 @@
         <div class="row">
             <div class="col col-50" >
                 <div class="list card" style="margin:0; width:100%; height:100%;">
-                    <a class="item item-image" ui-sref="sublocitem({lid: 2, iid:3})">
+                    <a class="item item-image" ui-sref="colony({lid: {{lid}}, cid:3})">
                         <img src="img/lichen3.jpg" style="height:8em;width:8em;">
                     </a>
                     <p class="item item-text-wrap" style="border:none; padding: 3px; text-align: center;">
@@ -44,7 +44,7 @@
             </div>
             <div class="col col-50" >
                 <div class="list card" style="margin:0;">
-                    <a class="item item-image" ui-sref="sublocitem({lid: 2, iid:4})">
+                    <a class="item item-image" ui-sref="colony({lid: {{lid}}, cid:4})">
                         <img src="img/lichen4.jpg" style="height:8em; width:8em;">
                     </a>
                     <p class="item item-text-wrap" style="border:none; padding: 3px; text-align: center;">
@@ -59,7 +59,7 @@
         <div class="row">
             <div class="col col-50" >
                 <div class="list card" style="margin:0;">
-                    <a class="item item-image" ui-sref="sublocitem({lid: 2, iid:5})">
+                    <a class="item item-image" ui-sref="colony({lid: {{lid}}, cid:5})">
                         <img src="img/lichen5.jpg" style="height:8em; width:8em;">
                     </a>
                     <p class="item item-text-wrap" style="border:none; padding: 5px 3px; text-align: center;">
