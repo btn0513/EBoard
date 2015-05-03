@@ -37,6 +37,14 @@ angular.module('starter', ['ionic', 'starter.controllers',
       url: "/signin",
       templateUrl: "templates/pages/signin.html"
     })
+  .state('signup', {
+      url: "/signup",
+      templateUrl: "templates/pages/signup.html"
+    })
+  .state('about', {
+      url: "/about",
+      templateUrl: "templates/pages/about.html"
+    })
   .state('mainlocs', {
       url: "/locations",
       templateUrl: "templates/pages/mainlocations.html"
