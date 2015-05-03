@@ -1,0 +1,32 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-balanced">
+          <button class="button button-clear icon-left ion-chevron-left"
+                  ui-sref="location({lid: {{lid}}})">Back</button>
+        <h1 class="title">{{colony.name}}</h1>
+          <button class="button button-clear icon-right ion-ios-home"
+                  ui-sref="home"></button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list card" style="margin:2em;">
+            <div class="item item-body">
+                <img class="full-image" src="img/colonies/{{colony.imgsil}}.jpg">
+                <div class="padding">
+                  <h1 style="text-align:left;">Hint</h1>
+                  <p>{{colony.hint}}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col" style="text-align:center;">
+            <h1><b>Found it?</b></h1>
+    
+          <label class="item item-input">
+            <span class="input-label">Key Code:</span>
+            <input ng-keyup="$event.keyCode == 13 && discover(keycode)" type="text" ng-model="keycode"/>
+          </label>
+            <button ng-click="discover(keycode)" class="button button-large button-balanced button-block">
+                Submit
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

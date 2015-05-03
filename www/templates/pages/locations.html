@@ -1,92 +1,26 @@
 <ion-view>
     <ion-header-bar align-title="center" class="bar-balanced">
         <h1 class="title">Locations</h1>
-          <button class="button button-clear icon ion-android-map"
-                  ui-sref="map" i></button>
+        <button class="button button-clear icon ion-android-map"
+                ui-sref="map" i></button>
     </ion-header-bar>
     <ion-content>
         <div class="list">
-            <span onclick="window.open('#/locations/1','_self');"
+            <span ng-repeat="loc in locations track by $index"
+                  ui-sref="location({lid: {{$index+1}}})"
                 class=" item item-text-wrap item-thumbnail-left item-icon-right">
-                <img src="img/unionstation.jpg">
+                <img src="img/locations/{{loc.img}}">
                 <button class="button button-clear icon ion-chevron-right" i></button>
                 
-                <div><strong>Union Station</strong></div>
+                <div><strong>{{loc.name}}</strong></div>
                 
                 <p name="address" style="padding-bottom: .2em;">
-                    30 West Pershing Road, Kansas City, MO 64108
+                    {{loc.address}}
                 </p>
-                <p>
-                    Mon - Sun<br/>
-                    6am - Midnight 
-                </p>
+                <p>{{loc.days}}<br/>{{loc.hours}}</p>
                 <p class="text-right">
-                    <a target="_blank"
-                          href="http://www.unionstation.org/">
-                        unionstation.org
-                    </a>
-                </p>
-            </span>
-            <span onclick="window.open('#/locations/2','_self');"
-                class="item item-text-wrap item-thumbnail-left item-icon-right">
-                <img src="img/plugprojects.jpg">
-                <button class="button button-clear icon ion-chevron-right" i></button>
-                
-                <div><strong>Plug Projects</strong></div>
-                
-                <p name="address" style="padding-bottom: .2em;">
-                    1613 Genessee St. Kansas City, MO 64102
-                </p>
-                <p>
-                    Saturday<br/>
-                    10am - 5pm 
-                </p>
-                <p class="text-right">
-                    <a target="_blank"
-                        href="http://www.plugprojects.com/">
-                        plugprojects.com
-                    </a>
-                </p>
-            </span>
-            <span onclick="window.open('#/locations/3','_self');"
-                class="item item-text-wrap item-thumbnail-left item-icon-right">
-                <img src="img/anitab.jpeg">
-                <button class="button button-clear icon ion-chevron-right" i></button>
-                
-                <div><strong>Anita B. Gorman</strong></div>
-                
-                <p name="address" style="padding-bottom: .2em;">
-                    4750 Troost Ave. Kansas City, MO 64110
-                </p>
-                <p>
-                    Mon - Fri<br/>
-                    8am - 5pm
-                </p>
-                <p class="text-right">
-                    <a target="_blank"
-                          href="http://mdc.mo.gov/regions/kansas-city/discovery-center">
-                        mdc.mo.gov/...
-                    </a>
-                </p>
-            </span>
-            <span onclick="window.open('#/locations/4','_self');"
-                class="item item-text-wrap item-thumbnail-left item-icon-right">
-                <img  style="height:100%;" src="img/maaa.jpg">
-                <button class="button button-clear icon ion-chevron-right" i></button>
-                
-                <div><strong>Mid-America Arts Alliance</strong></div>
-                
-                <p name="address" style="padding-bottom: .2em;">
-                    2018 Baltimore Ave. Kansas City, MO64108
-                </p>
-                <p>
-                    Mon - Fri<br/>
-                    8am - 5pm 
-                </p>
-                <p class="text-right">
-                    <a target="_blank"
-                          href="http://maaa.org/">
-                        maaa.org
+                    <a target="_blank" href="{{loc.url}}">
+                        {{loc.website}}
                     </a>
                 </p>
             </span>

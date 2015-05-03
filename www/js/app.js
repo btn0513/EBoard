@@ -35,11 +35,13 @@ angular.module('starter', ['ionic', 'starter.controllers',
     })
   .state('signin', {
       url: "/signin",
-      templateUrl: "templates/pages/signin.html"
+      templateUrl: "templates/pages/signin.html",
+      controller:"loginCtrl"
     })
   .state('signup', {
       url: "/signup",
-      templateUrl: "templates/pages/signup.html"
+      templateUrl: "templates/pages/signup.html",
+      controller:"signupCtrl"
     })
   .state('about', {
       url: "/about",
@@ -47,7 +49,8 @@ angular.module('starter', ['ionic', 'starter.controllers',
     })
   .state('locations', {
       url: "/locations",
-      templateUrl: "templates/pages/locations.html"
+      templateUrl: "templates/pages/locations.html",
+      controller:"LocsCtrl"
     })
   .state('map', {
       controller:"MapCtrl",
@@ -60,8 +63,13 @@ angular.module('starter', ['ionic', 'starter.controllers',
       controller:"LocCtrl"
     })
   .state('colony', {
-      url: "/locations/:lid/item/:cid",
+      url: "/locations/:lid/colony/:cid",
       templateUrl: "templates/pages/colony.html",
+      controller:"ColonyCtrl"
+    })
+  .state('idkcolony', {
+      url: "/locations/:lid/colony/:cid",
+      templateUrl: "templates/pages/idkcolony.html",
       controller:"ColonyCtrl"
     })
 
