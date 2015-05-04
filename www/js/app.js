@@ -50,10 +50,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'browsing' :{
           templateUrl: "templates/browse/featured.html",
-          controller: 'featuredCtrl'
+          controller: 'FeaturedCtrl'
         }
       }
     })
+    // details page
     .state('home.details', { //  url#/featured/details
       url: "browse/details/:postId",
       views: {
@@ -88,31 +89,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    //**************     CHAT PAGE     *******************************
-
-    .state('home.chat', { //  url#/chat
-      url: "chat",
-      views: {
-        'chat' :{
-          templateUrl: "templates/chat/chat.html",
-          controller: 'ChatsCtrl'
-        }
-      }
-    }).state('home.chating', { //  url#/chat/:chatId
-      url: "chat/:chatId",
-      views: {
-        'chat' :{
-          templateUrl: "templates/chat/chating.html",
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
-  //********* Pin Page ************
-    .state('home.pin',{
-      url:"pin",
+  //********* saved Page ************
+    .state('home.saved',{
+      url:"saved",
       views:{
-        'pin':{
-          templateUrl:"templates/pin/pin.html"
+        'saved':{
+          templateUrl:"templates/saved/saved.html"
         }
       }
     })

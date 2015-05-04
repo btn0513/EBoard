@@ -5,8 +5,8 @@
 </ion-nav-bar>
   <ion-content style="top:0;background-color: #FAFAFA;">
 
-      <div class="item item-image" style="text-align:center; height:260px;">
-        <a href="" class="item item-image">
+      <div ng-controller="PicsCtrl" class="item item-image" style="text-align:center; height:260px;">
+        <a ng-click="openModal()" class="item item-image">
           <img class="full-image" ng-src="{{post.images[0]}}">
         </a>
       </div>
@@ -15,8 +15,8 @@
     <div class="item item-body" style="height:110px;box-shadow:0 1px 5px grey;">
     <p style="text-align:center; font-size:1.3em;">{{post.title}}</p>
     <div class="item-icon-left item-icon-right">
-        <i style="font-size: small; padding-bottom:80px; color:#8D8D8D;" class="icon ion-ios-star">{{post.saved}}</i>
-        <i style="font-size: small; padding-bottom:80px; color:#8D8D8D;" class="icon ion-ios-time"></i>
+        <i style="font-size: large; padding-bottom:80px; color:#8D8D8D;" class="icon ion-ios-star">{{post.saved}}</i>
+        <i style="font-size: large; padding-bottom:80px; color:#8D8D8D;" class="icon ion-ios-camera"></i>
     </div>
       <div class="row">
         <p class="col col-offset-10" style="position:relative;top:-25px;color:#0A3CB6">CONTACT</p>
@@ -26,28 +26,28 @@
 
    <div> <!-- div container for body-->
         <!-- Date and time of event -->
-        <p class="ion-ios-clock" style="font-size:XX-large; margin:20px 0px 0px 17px; color:#71D472;">
-          <span style="font-size: .6em; position:relative;top:-5px; margin: 0px 0px 5px 20px; color:black;"> {{post.date}}</span></p>
+        <i class="ion-ios-clock" style="font-size:XX-large; margin:0px 0px 0px 18px;position:relative;top:20px; color:#71D472;"></i>
+        <p style="font-size: 1.3em; position:relative;top:-30px; margin: 23px 10px 0px 65px; color:black;"> {{post.date}}</p>
 
         <!-- location of event -->
-        <p class="ion-ios-location" style="font-size:XX-large; margin:20px 0px 0px 20px; color:#A1887F;">
-          <span style="font-size: .6em; position:relative;top:-5px; margin: 0px 0px 5px 20px; color:black;"> {{post.location}}</span></p>
-      <div class="row">
-        <div class="col col-10"></div>
-        <div class="item item-image" style="margin:10px 15px 25px 25px;"> <!-- using filler image for now -->
-        <img class="full-image" src="img/Map.png"></img> <!-- need to implement map api to display the location here -->
+        <i class="ion-ios-location" style="font-size:XX-large; margin:0px 0px 0px 18px;position:relative;top:20px; color:#A1887F;"></i>
+        <p style="font-size: 1.3em; position:relative;top:-30px; margin: 23px 10px 5px 65px; color:black;"> {{post.location}}</p>
+          <div class="row">
+            <div class="col col-10"></div>
+              <div class="item item-image" style="margin:0px 15px 25px 25px;"> <!-- using filler image for now -->
+              <img class="full-image" src="img/Map.png"></img> <!-- need to implement map api to display the location here -->
+              </div>
         </div>
-     </div>
 
      <!-- description of event-->
-     <p class="ion-ios-paper" style="font-size:XX-large; margin:-10px 0px 0px 18px; color:#F48FB1;">
-       <span style="font-size: .4em; position:relative;top:-5px; margin: 0px 0px 5px 20px; color:black;"> {{post.description}}</span></p>
+     <i class="ion-ios-paper" style="font-size:XX-large; margin:-10px 0px 0px 18px; color:#F48FB1;"></i>
+     <p style="font-size: 1em; position:relative;top:-30px; margin: 0px 15px 5px 65px; color:black;"> {{post.description}}</p>
 
       <!-- poster info goes here -->
-     <p class="ion-ios-person" style="font-size:XX-large; margin:20px 0px 0px 18px; color:#4E6CEF;">
-        <span style="font-size: .4em; position:relative;top:-15px; margin: 0px 0px 5px 25px; color:black;"> Posted By {{post.postedAuthor}}</span>
+     <p class="ion-ios-person" style="font-size:XX-large; margin:0px 0px 0px 13px; color:#4E6CEF;">
+        <span style="font-size: .4em; position:relative;top:-15px; margin: 0px 0px 5px 23px; color:black;"> Posted By {{post.postedAuthor}}</span>
         <br/>
-        <span style="font-size: .3em; position:relative;top: -27px; margin: 0px 0px 5px 54px; color:black;"> {{post.date_created}}</span>
+        <span style="font-size: .3em; position:relative;top: -27px; margin: 0px 0px 5px 52px; color:black;"> {{post.date_created}}</span>
         </p>
       </div>
   </ion-content>
