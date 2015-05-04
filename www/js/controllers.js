@@ -63,6 +63,62 @@ angular.module('starter.controllers', [])
   $scope.$on('$destroy', function() {
     
   });
-});
+})
+
+// Picture controller in the detail page
+.controller('MapCtrl', function($scope, $ionicModal, uiGmapGoogleMapApi) {
+  // Do stuff with your $scope.
+  // Note: Some of the directives require at least something to be defined originally!
+  // e.g. $scope.markers = []
+
+  // uiGmapGoogleMapApi is a promise.
+  // The "then" callback function provides the google.maps object.
+  uiGmapGoogleMapApi.then(function(maps) {
+    $scope.map = {center: {latitude: 40.1451, longitude: -99.6680}, zoom: 3 };
+    $scope.options = {scrollwheel: false};
+    $scope.marker = {
+      coords: {
+        latitude: 40.1451,
+        longitude: -99.6680
+      },
+      show: false,
+      id: 0
+    };
+
+    $scope.windowOptions = {
+      visible: false
+    };
+
+    $scope.onClick = function() {
+      $scope.windowOptions.visible = !$scope.windowOptions.visible;
+    };
+
+    $scope.closeClick = function() {
+      $scope.windowOptions.visible = false;
+    };
+
+    $scope.title = "USSSSS!";
+
+    $ionicModal.fromTemplateUrl('templates/browse/gmap-popover.html', {
+      scope: $scope,
+      animation: 'fade-in'
+    }).then(function(modal) {
+        $scope.modal = modal;
+    });
+
+    $scope.openModal = function() {
+      $scope.modal.show();
+    };
+
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+
+    //Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+      
+    });
+  });
+})
 
 ;
