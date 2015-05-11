@@ -8,7 +8,7 @@
     <ion-content>
           <label class="item item-input">
             <span class="input-label">Email:</span>
-            <input ng-keyup="$event.keyCode == 13 && loginbtn(username)" type="text" ng-model="username"/>
+            <input name="email" ng-keyup="$event.keyCode == 13 && loginbtn(username)" type="text" ng-model="username"/>
           </label>
         <div class="row">
             <button ng-click="loginbtn(username)" class="button button-large button-balanced button-block">
@@ -26,7 +26,7 @@
             </button>
         </div>
         <div class="row text-center">
-            <div >{{yep}}</div>
+            <div >{{loginMsg}}</div>
         </div>
     </ion-content>
 </ion-view>
