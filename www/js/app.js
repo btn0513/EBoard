@@ -31,45 +31,45 @@ angular.module('starter', ['ionic', 'starter.controllers',
   $stateProvider
   .state('home', {
       url: "/",
-      templateUrl: "templates/pages/home.html"
+      templateUrl: "pages/home.html"
     })
   .state('signin', {
       url: "/signin",
-      templateUrl: "templates/pages/signin.html",
+      templateUrl: "pages/signin.html",
       controller:"loginCtrl"
     })
   .state('signup', {
       url: "/signup",
-      templateUrl: "templates/pages/signup.html",
+      templateUrl: "pages/signup.html",
       controller:"signupCtrl"
     })
   .state('about', {
       url: "/about",
-      templateUrl: "templates/pages/about.html"
+      templateUrl: "pages/about.html"
     })
   .state('locations', {
       url: "/locations",
-      templateUrl: "templates/pages/locations.html",
+      templateUrl: "pages/locations.html",
       controller:"LocsCtrl"
     })
   .state('map', {
       controller:"MapCtrl",
       url: "/locations/map",
-      templateUrl: "templates/pages/map.html"
+      templateUrl: "pages/map.html"
     })
   .state('location', {
       url: "/locations/:lid",
-      templateUrl: "templates/pages/location.html",
+      templateUrl: "pages/location.html",
       controller:"LocCtrl"
-    })
-  .state('colony', {
-      url: "/locations/:lid/colony/:cid",
-      templateUrl: "templates/pages/colony.html",
-      controller:"ColonyCtrl"
     })
   .state('idkcolony', {
       url: "/locations/:lid/colony/:cid",
-      templateUrl: "templates/pages/idkcolony.html",
+      templateUrl: "pages/idkcolony.html",
+      controller:"ColonyCtrl"
+    })
+  .state('colony', {
+      url: "/locations/:lid/colony/:cid",
+      templateUrl: "pages/colony.html",
       controller:"ColonyCtrl"
     })
 

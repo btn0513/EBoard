@@ -1,22 +1,38 @@
 angular.module('starter.pagesCtrl', ['ionic'])
 
-.controller('ColonyCtrl', function($scope, $stateParams,$ionicModal, colony, user) {
+.controller('ColonyCtrl', function($scope, $state, $window, $stateParams,$ionicModal, colony, user) {
     
     $scope.keycode = "";
+    $scope.foundMsg = "";
     function successful(data, status, headers, config) {
-        if(data.status){
-            
+        if(data.status == 1){
+            if(data.col == $stateParams.cid){
+                $scope.foundMsg = "found it";
+                $state.go("location", {lid:$stateParams.lid}, {reload:true});
+                $window.location.reload();
+            }else{
+                var locid = 0;
+                if(data.col<=4)locid = 1;
+                if(data.col==5)locid = 2;
+                if(data.col==6)locid = 3;
+                else locid = 2;
+                $scope.foundMsg = "you found a different colony, "+data.col;
+                $state.go("location", {lid:locid}, {reload:true});
+                $window.location.reload();
+            }
+        }else if(data.status == 0){
+            $scope.foundMsg = "youve already found that colony.";
         }else{
-            console.log("not so much");
+            $scope.foundMsg = "please enter a valid code";
         }
     }
     $scope.discover = function(code) {
         user.discover(window.localStorage['username'],code).success(successful).
           error(function(data, status, headers, config) {
+        console.log(data);
                 console.log("ouch");
           });
     }
-    
     $scope.lid = $stateParams.lid;
     $scope.colony = colony.get($stateParams.cid);
     
@@ -92,10 +108,16 @@ angular.module('starter.pagesCtrl', ['ionic'])
         }
     }
     $scope.register = function(uid) {
-        user.signup(uid).success(successful).
-          error(function(data, status, headers, config) {
-            $scope.signupMsg = "cant connect";
-          });
+        //check if its a good email address
+        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        if(!re.test(uid)){
+            $scope.signupMsg = "please enter a valid email address";
+        }else{
+            user.signup(uid).success(successful).
+              error(function(data, status, headers, config) {
+                $scope.signupMsg = "cant connect";
+              });
+        }
     }
     var name = window.localStorage['username'] || 'you';
     $scope.yep = 'Hello, ' + name;

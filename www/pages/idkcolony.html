@@ -24,6 +24,7 @@
             <span class="input-label">Key Code:</span>
             <input ng-keyup="$event.keyCode == 13 && discover(keycode)" type="text" ng-model="keycode"/>
           </label>
+            <p>{{foundMsg}}</p>
             <button ng-click="discover(keycode)" class="button button-large button-balanced button-block">
                 Submit
             </button>

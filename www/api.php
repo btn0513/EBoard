@@ -40,7 +40,7 @@ else if($_GET["action"]=="colonies"){
 else if($_GET["action"]=="discover"){
     $sql = "SELECT * FROM Colony WHERE QR=\"".$_GET["code"]."\"";
     $result = mysqli_query($conn, $sql);
-    $status = 0;
+    $json = "";
     
     if(mysqli_num_rows($result) == 1){
         $colony = mysqli_fetch_assoc($result);
@@ -54,9 +54,11 @@ else if($_GET["action"]=="discover"){
         $result = mysqli_query($conn, $sql);
         
         if($result)
-            $status = 1;
+            $json = "{\"status\":1,\"user\":\"".$_GET["user"]."\",\"col\":".$colony["CID"]."}";
+        else 
+            $json = "{\"status\":0,\"user\":\"".$_GET["user"]."\"}";
     }
-    echo "{\"status\":".$status.",\"user\":\"".$_GET["user"]."\"}";
+    echo $json;
 }
 
 /*

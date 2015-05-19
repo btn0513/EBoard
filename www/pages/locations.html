@@ -3,7 +3,7 @@
         <button class="button button-clear icon ion-ios-home" ui-sref="home"></button>
         <h1 class="title">Locations</h1>
         <button class="button button-clear icon ion-android-map"
-                ui-sref="map" i></button>
+                ui-sref="map" i>Map</button>
     </ion-header-bar>
     <ion-content>
         <div class="list">
@@ -15,15 +15,22 @@
                 
                 <div><strong>{{loc.name}}</strong></div>
                 
-                <p name="address" style="padding-bottom: .2em;">
-                    {{loc.address}}
+                <p name="address" style="font-size:.8em;">
+                    {{loc.address}}<br/>
                 </p>
-                <p>{{loc.days}}<br/>{{loc.hours}}</p>
-                <p class="text-right">
+                <div class="text-center" style="font-size:.8em;">
+                    Lichen Available: <b>{{loc.avail}}</b>
+                </div>
+                <div class="row">
+                    <span class="col times text-center" ng-repeat="time in loc.times">
+                        <span>{{time.days}}</span><br/><b>{{time.hours}}</b>
+                    </span>
+                </div>
+                <div class="text-right">
                     <a target="_blank" href="{{loc.url}}">
                         {{loc.website}}
                     </a>
-                </p>
+                </div>
             </span>
         </div>
     </ion-content>
