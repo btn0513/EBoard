@@ -5,7 +5,5 @@ Current Active Members:
 
 # Run locally
 
-	git clone https://github.com/btn0513/EBoard.git
-    cd EBoard
-    git checkout [master/binh/mike/...]
-    npm install
+just run www/index.html within a localhost environment.
+if you have netbeans just import the project and run with chrome.
