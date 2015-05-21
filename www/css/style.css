@@ -11,3 +11,13 @@
 div .times:not(:first-child){
   border-left: 1px dotted grey;
 }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}

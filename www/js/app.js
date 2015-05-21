@@ -62,14 +62,18 @@ angular.module('starter', ['ionic', 'starter.controllers',
       templateUrl: "pages/location.html",
       controller:"LocCtrl"
     })
-  .state('idkcolony', {
-      url: "/locations/:lid/colony/:cid",
-      templateUrl: "pages/idkcolony.html",
-      controller:"ColonyCtrl"
-    })
   .state('colony', {
+      abstract: true,
       url: "/locations/:lid/colony/:cid",
       templateUrl: "pages/colony.html",
+      controller:"ColonyCtrl"
+    })
+  .state('colony.known', {
+      templateUrl: "pages/fragment/knownColony.html",
+      controller:"ColonyCtrl"
+    })
+  .state('colony.unknown', {
+      templateUrl: "pages/fragment/unknownColony.html",
       controller:"ColonyCtrl"
     })
 

@@ -1,0 +1,21 @@
+<div class="list card" style="margin:2em;">
+    <div class="item item-body">
+        <img class="full-image" ng-src="img/colonies/{{colony.imgsil}}.jpg">
+        <div class="padding">
+          <h1 style="text-align:left;">Hint</h1>
+          <p>{{colony.hint}}</p>
+        </div>
+    </div>
+</div>
+<div class="col" style="text-align:center;">
+    <h1><b>Found it?</b></h1>
+
+  <label class="item item-input">
+    <span class="input-label">Key Code:</span>
+    <input ng-keyup="$event.keyCode == 13 && discover(keycode)" type="text" ng-model="keycode"/>
+  </label>
+    <p>{{foundMsg}}</p>
+    <button ng-click="discover(keycode)" class="button button-large button-balanced button-block">
+        Submit
+    </button>
+</div>

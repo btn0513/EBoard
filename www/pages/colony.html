@@ -7,37 +7,6 @@
                   ui-sref="home"></button>
     </ion-header-bar>
     <ion-content>
-        <ion-slide-box show-pager="true">
-            <ion-slide>
-                <div class="list card" >
-                    <div class="item item-body">
-                        <img class="full-image" ng-src="img/colonies/{{colony.img}}.jpg">
-                        <div class="row text-center">
-                            <h3>FOUND IT!</h3>
-                        </div>
-                        <div class="padding row">
-                            <p>
-                                some stuff and what nots.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ion-slide>
-            <ion-slide>
-                <div class="list card">
-                    <div class="item item-body">
-                        <img class="full-image" src="img/colonies/{{colony.img}}.jpg">
-                        <div class="row text-center">
-                            <h3>another</h3>
-                        </div>
-                        <div class="row padding ">
-                            <p>
-                                lichens
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </ion-slide>
-        </ion-slide-box>
+        <div ui-view></div>
     </ion-content>
 </ion-view>

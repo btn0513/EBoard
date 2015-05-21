@@ -4,6 +4,7 @@ angular.module('starter.pagesCtrl', ['ionic'])
     
     $scope.keycode = "";
     $scope.foundMsg = "";
+    $scope.availToday = false;
     function successful(data, status, headers, config) {
         if(data.status == 1){
             if(data.col == $stateParams.cid){
@@ -44,6 +45,14 @@ angular.module('starter.pagesCtrl', ['ionic'])
     $scope.discovered = [];
     $scope.undiscovered = [];
     discoveredList = [];
+
+    var dateAvail = Date.parse($scope.loc.avail);
+    var todaysDate = Date.now();
+
+    if(dateAvail > todaysDate)
+        angular.element( document.querySelector( '#notAvail' ) ).removeClass('hidden');
+    else
+        angular.element( document.querySelector( '#Avail' ) ).removeClass('hidden');
             
     user.colonies(window.localStorage['username']).success(successful).
           error(function(data, status, headers, config) {
