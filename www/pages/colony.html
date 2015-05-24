@@ -2,11 +2,10 @@
     <ion-header-bar align-title="center" class="bar-balanced">
           <button class="button button-clear icon-left ion-chevron-left"
                   ui-sref="location({lid: {{lid}}})">Back</button>
-        <h1 class="title">{{colony.name}}</h1>
+        <h1 class="title">{{title}}</h1>
           <button class="button button-clear icon-right ion-ios-home"
                   ui-sref="home"></button>
     </ion-header-bar>
     <ion-content>
         <div ui-view></div>
-    </ion-content>
 </ion-view>

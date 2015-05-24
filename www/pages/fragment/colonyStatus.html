@@ -1,0 +1,15 @@
+<div class="modal row" ng-click="closeModal()" style="display: flex;align-items: center;">
+    <div class="col">
+        <div class="row text-center">
+            <span class="col" style="color:white;">
+                {{foundMsg}}
+            </span>
+        </div>
+        <div class="row text-center">
+            <span class="col">
+                <button ng-if="!found" class="button button-balanced" ng-click="closeModal()">Cancel</button>
+                <button ng-if="found" class="button button-balanced" ng-click="goto()">Continue</button>
+            </span>
+        </div>
+    </div>
+</div>

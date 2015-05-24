@@ -24,14 +24,19 @@ angular.module('starter', ['ionic', 'starter.controllers',
 
 .config(function($stateProvider, $ionicConfigProvider, $urlRouterProvider) {
 
+  $ionicConfigProvider.views.maxCache(0);
   $ionicConfigProvider.backButton.previousTitleText(false).text(''); // Hide default back btn text
   $ionicConfigProvider.tabs.position('bottom');
-  $ionicConfigProvider.views.transition("android");  // android view transition
+  $ionicConfigProvider.views.transition("platform");  // android view transition
 
   $stateProvider
   .state('home', {
       url: "/",
       templateUrl: "pages/home.html"
+    })
+  .state('admin', {
+      url: "/admin",
+      templateUrl: "pages/admin.html"
     })
   .state('signin', {
       url: "/signin",
@@ -63,14 +68,13 @@ angular.module('starter', ['ionic', 'starter.controllers',
       controller:"LocCtrl"
     })
   .state('colony', {
-      abstract: true,
       url: "/locations/:lid/colony/:cid",
       templateUrl: "pages/colony.html",
-      controller:"ColonyCtrl"
+      controller:"ColonyPageCtrl"
     })
   .state('colony.known', {
       templateUrl: "pages/fragment/knownColony.html",
-      controller:"ColonyCtrl"
+      controller:"LichenCtrl"
     })
   .state('colony.unknown', {
       templateUrl: "pages/fragment/unknownColony.html",

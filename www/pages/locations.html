@@ -6,36 +6,42 @@
                 ui-sref="map" i>Map</button>
     </ion-header-bar>
     <ion-content>
-        <div class="list">
-            <span ng-repeat="loc in locations track by $index"
-                  ui-sref="location({lid: {{$index+1}}})"
-                class=" item item-text-wrap item-thumbnail-left item-icon-right">
-                <img  ng-src="img/locations/{{loc.img}}">
-                <button class="button button-clear icon ion-chevron-right" i></button>
-                
-                <div><strong>{{loc.name}}</strong></div>
-                
-                <p name="address" style="font-size:.8em;">
-                    {{loc.address}}<br/>
-                </p>
-                <div class="text-center" style="border-color:#28a54c;border-width:1px;border-style:ridge;font-size:.8em;">
-                    Lichen Available: <b>{{loc.avail}}</b>
+        <div class="text-center">
+            To see a locations lichen, click
+            <button class="button button-small button-clear button-positive icon ion-android-search" i></button>
+        </div>
+        <div ng-repeat="loc in locations track by $index" class="row padding-bottom">
+            <div class="item item-text-wrap col"
+                style="background-image:url('img/locations/{{loc.img}}');">
+                <div id="mainContent" ng-click="goto({{$index+1}})" style="opacity:4">
+                    <div class="row">
+                        <span>
+                            <b>{{loc.name}}</b>
+                        </span>
+                        <span class="col text-right">
+                            <a ng-click="dontSwitch($event)" target="_blank" href="{{loc.url}}">
+                                website
+                            </a>
+                        </span>
+                    </div>
+                    <div class="row" name="address" style="font-size:.8em;">
+                        {{loc.address}}<br/>
+                    </div>
+                    <div class="row" style="margin-bottom:1%;">
+                        <span class="col times text-center" ng-repeat="time in loc.times">
+                            <span>{{time.days}}</span><br/><b>{{time.hours}}</b>
+                        </span>
+                        <div class="col-10">
+                            <button class="button button-small button-outline button-positive icon ion-android-search" i></button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <span class="text-center" style="float:left;width:80%;margin-left:10%;border-color:#28a54c;border-width:1px;border-style:ridge;">
+                            Lichen Available: <b>{{loc.avail}}</b>
+                        </span>
+                    </div>
                 </div>
-                <div class="row">
-                    <span class="col times text-center" ng-repeat="time in loc.times">
-                        <span>{{time.days}}</span><br/><b>{{time.hours}}</b>
-                    </span>
-                </div>
-                <p>
-                    enter
-                </p>
-                <div class="text-right">
-                    <span style="font-size:.9em">website:</span>
-                    <a target="_blank" href="{{loc.url}}">
-                        {{loc.website}}
-                    </a>
-                </div>
-            </span>
+            </div>
         </div>
     </ion-content>
 </ion-view>

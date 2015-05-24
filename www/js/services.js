@@ -1,13 +1,14 @@
 angular.module('starter.services', [])
 
-.service('user', function($http){
+.factory('user', function($http){
+    var fac = {};
     var site = "urbancolonization.com";
     if(document.location.host == "localhost:8383"){
         site = "104.236.43.114";
     }
     var siteurl = "http://"+site+"/api.php";
             
-    this.colonies = function(uid) {
+    fac.colonies = function(uid) {
         
         return $http({
             url: siteurl, 
@@ -15,7 +16,7 @@ angular.module('starter.services', [])
             params: {action: "colonies", user:uid}
          });
     };
-    this.discover = function(uid,code) {
+    fac.discover = function(uid,code) {
         
         return $http({
             url: siteurl, 
@@ -23,7 +24,7 @@ angular.module('starter.services', [])
             params: {action: "discover", user:uid, code:code}
          });
     };
-    this.login = function(uid) {
+    fac.login = function(uid) {
         
         return $http({
             url: siteurl, 
@@ -31,7 +32,7 @@ angular.module('starter.services', [])
             params: {action: "login", user:uid}
          });
     };
-    this.signup = function(uid) {
+    fac.signup = function(uid) {
         
         return $http({
             url: siteurl, 
@@ -39,6 +40,7 @@ angular.module('starter.services', [])
             params: {action: "signup", user:uid}
          });
     };
+    return fac;
 })
 .service('location', function(){
     this.get = function(id) {
@@ -93,7 +95,7 @@ angular.module('starter.services', [])
                 "address":"4750 Troost Ave. Kansas City, MO 64110",
                 "url":"http://mdc.mo.gov/regions/kansas-city/discovery-center",
                 "website":"mdc.mo.gov/...",
-                "img":"anitab.jpeg",
+                "img":"anitab.jpg",
                 "colonies":[7,8,9]
             }
         ];
@@ -151,7 +153,7 @@ angular.module('starter.services', [])
                 "name":"Flavoparmelia caperata",
                 "descrip":"blah blah something",
                 "hint":"These versatile shields of green-- just hanging out, with a nice view of First Friday's street scene.",
-                "img":"lichen1",
+                "img":"Graphis_scripta_dsc_1719",
                 "imgsil":"Flavoparmelia caperata silhouette small",
                 "lichen":[1,2,6]
             },
@@ -159,7 +161,7 @@ angular.module('starter.services', [])
                 "name":"Lecanora hybocarpa, Arthonia rubella",
                 "descrip":"blah blah something",
                 "hint":"They took a \"poll\" and confirmed the spots resemble german measles.",
-                "img":"lichen2",
+                "img":"Lecanora_hybocarpa_2242",
                 "imgsil":"Flavoparmelia caperata silhouette medium",
                 "lichen":[1,4,5,6]
             },
@@ -167,7 +169,7 @@ angular.module('starter.services', [])
                 "name":"Teloschistes chrysophthalmus, Parmotrema perforatum",
                 "descrip":"blah blah something",
                 "hint":"This architectural horizon has a bizarre fashion sense complete with blue ruffles, black eyelashes, a green beard and blonde split-ends.",
-                "img":"lichen3",
+                "img":"Parmotrema chinense_0483",
                 "imgsil":"Flavoparmelia caperata silhouette large",
                 "lichen":[1,2,3]
             },
@@ -175,7 +177,7 @@ angular.module('starter.services', [])
                 "name":"Xanothoria parientina, physcia stellaris",
                 "descrip":"blah blah something",
                 "hint":"One of these belongs to a family of stars and another is a namesake of the sun. It is no surprise that these two share an affinity for watching the sky. They chose their home accordingly.",
-                "img":"lichen4",
+                "img":"Parmotrema perferatum_5659",
                 "imgsil":"colony1_sil",
                 "lichen":[3,2]
             },
@@ -183,7 +185,7 @@ angular.module('starter.services', [])
                 "name":"Candelariella vitellina, Candelaria fibrosa",
                 "descrip":"dfgsdg",
                 "hint":"This allusive and camera shy colony is flourishing in a liminal habitat.",
-                "img":"lichen5",
+                "img":"Teloschistes chryspothalmus & Parmotrema",
                 "imgsil":"colony1_sil",
                 "lichen":[1,2,3,4,5,6]
             },
@@ -191,7 +193,7 @@ angular.module('starter.services', [])
                 "name":"Punctelia rudecta Xanthoparmelia hypomelaena Acoraspora socialis Parmotrema chinese Parmotrema perforatum Lecanora muralis",
                 "descrip":"blah blah something",
                 "hint":"This group is a social one. Their communial lifestyle connects them to more than just each other.",
-                "img":"lichen6",
+                "img":"Xanthoria parientina_5071",
                 "imgsil":"colony1_sil",
                 "lichen":[1,5]
             },

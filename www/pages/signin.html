@@ -9,6 +9,7 @@
           <label class="item item-input">
             <span class="input-label">Email:</span>
             <input name="email" ng-keyup="$event.keyCode == 13 && loginbtn(username)" type="text" ng-model="username"/>
+          <ion-spinner id="requesting" class="hidden"></ion-spinner>
           </label>
         <div class="row">
             <button ng-click="loginbtn(username)" class="button button-large button-balanced button-block">
@@ -24,9 +25,6 @@
             <button class="button button-large button-balanced button-block" ui-sref="signup">
                 Sign Up
             </button>
-        </div>
-        <div class="row text-center">
-            <div >{{loginMsg}}</div>
         </div>
     </ion-content>
 </ion-view>

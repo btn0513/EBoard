@@ -1,32 +1,22 @@
-<ion-slide-box show-pager="true">
-     <ion-slide>
-         <div class="list card" >
-             <div class="item item-body">
-                 <img class="full-image" ng-src="img/colonies/{{colony.img}}.jpg">
-                 <div class="row text-center">
-                     <h3>FOUND IT!</h3>
-                 </div>
-                 <div class="padding row">
-                     <p>
-                         some stuff and what nots.
-                     </p>
-                 </div>
-             </div>
-         </div>
-     </ion-slide>
-     <ion-slide>
-         <div class="list card">
-             <div class="item item-body">
-                 <img class="full-image" src="img/colonies/{{colony.img}}.jpg">
-                 <div class="row text-center">
-                     <h3>another</h3>
-                 </div>
-                 <div class="row padding ">
-                     <p>
-                         lichens
-                     </p>
-                 </div>
-             </div>
-         </div>
-     </ion-slide>
-</ion-slide-box>
+<div class="card">
+    <div class="box">
+        <div class="item-image">
+            <ion-slide-box on-slide-changed="slideChanged($index)"
+                show-pager="true" does-continue="true" delegate-handle="lichenslide" auto-play="true">
+                <ion-slide ng-repeat="lichen in lichenList">
+                    <img ng-src="img/lichen/{{lichen.img}}.jpg">
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+    </div>
+    <div class="item item-content">
+        <div class="row">
+            <span class="col h3 text-center">{{name}}</span>
+        </div>
+        <div class="row">
+            <span class="col text-center">
+                {{descrip}}
+            </span>
+        </div>
+    </div>
+</div>
