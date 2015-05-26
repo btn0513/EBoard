@@ -1,4 +1,4 @@
-angular.module('starter.pagesCtrl', ['ionic', 'd3'])
+angular.module('starter.pagesCtrl', ['ionic', 'angularCharts'])
 
 .controller('AdminCtrl', function($scope, $stateParams, $ionicSlideBoxDelegate,
         location, colony, lichen) {
@@ -39,12 +39,47 @@ angular.module('starter.pagesCtrl', ['ionic', 'd3'])
         if($scope.Name == "Lichen")
             console.log($scope.selected.lich);
     }
-    $scope.myData = [];
     
     $scope.randData = function(){
-        for(i=0;i<10;i++)
-            $scope.myData.push(Math.floor(Math.random()*100));
+        for(i=0;i<4;i++){
+            $scope.data1.data[i].y = [];
+            for(j=0;j<5;j++){ 
+                $scope.data1.data[i].y.push(Math.floor(Math.random()*100));
+            }
+        }
     }
+    
+    $scope.data1 = {
+            series: ['Sales', 'Income', 'Expense', 'Laptops', 'Keyboards'],
+            data: [{
+                    x: "Sales",
+                    y: [100, 500, 0],
+                    tooltip: "this is tooltip"
+            }, {
+                    x: "Not Sales",
+                    y: [300, 100, 100]
+            }, {
+                    x: "Tax",
+                    y: [351]
+            }, {
+                    x: "Not Tax",
+                    y: [54, 0, 879]
+            }]
+    };
+
+    $scope.chartType = 'bar';
+
+    $scope.config1 = {
+            tooltips: true,
+            labels: false,
+            title: "Products",
+            legend: {
+                    display: true,
+                    position: 'left'
+            },
+            innerRadius: 30
+    };
+        
     $scope.randData();
 })
 
