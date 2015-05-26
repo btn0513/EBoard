@@ -1,4 +1,52 @@
-angular.module('starter.pagesCtrl', ['ionic'])
+angular.module('starter.pagesCtrl', ['ionic', 'd3'])
+
+.controller('AdminCtrl', function($scope, $stateParams, $ionicSlideBoxDelegate,
+        location, colony, lichen) {
+    
+    $scope.locations = location.get();
+    $scope.colonies = colony.get();
+    $scope.lichens = lichen.get();
+    $scope.selected = {"loc": $scope.locations[0],
+                        "colo":$scope.colonies[0],
+                        "lich":$scope.lichens[0]};
+    $scope.Name = "";
+    
+    $scope.updateLoc = function(){
+        location1 = $scope.selected.loc;
+        location1.avail = new Date($scope.selected.loc.avail);
+        $scope.location1 = location1;
+        
+        $scope.Name = "Location";
+    }
+    $scope.updateColo = function(){        
+        colony1 = $scope.selected.colo;
+        $scope.colony1 = colony1;
+        
+        $scope.Name = "Colony";
+    }
+    $scope.updateLich = function(){        
+        lichen1 = $scope.selected.lich;
+        //colony1.avail = new Date($scope.selected.loc.avail);
+        $scope.lichen1 = lichen1;
+        
+        $scope.Name = "Lichen";
+    }
+    $scope.upload = function(){
+        if($scope.Name == "Location")
+            console.log($scope.selected.loc);
+        if($scope.Name == "Colony")
+            console.log($scope.selected.colo);
+        if($scope.Name == "Lichen")
+            console.log($scope.selected.lich);
+    }
+    $scope.myData = [];
+    
+    $scope.randData = function(){
+        for(i=0;i<10;i++)
+            $scope.myData.push(Math.floor(Math.random()*100));
+    }
+    $scope.randData();
+})
 
 .controller('LichenCtrl', function($scope, $stateParams, $ionicSlideBoxDelegate, colony, lichen) {
     

@@ -1,3 +1,29 @@
+angular.module('d3', [])
+.factory('d3Service', ['$document', '$window', '$q', '$rootScope',
+  function($document, $window, $q, $rootScope) {
+    var d = $q.defer(),
+        d3service = {
+          d3: function() { return d.promise; }
+        };
+  function onScriptLoad() {
+    // Load client in the browser
+    $rootScope.$apply(function() { d.resolve($window.d3); });
+  }
+  var scriptTag = $document[0].createElement('script');
+  scriptTag.type = 'text/javascript'; 
+  scriptTag.async = true;
+  scriptTag.src = 'http://d3js.org/d3.v3.min.js';
+  scriptTag.onreadystatechange = function () {
+    if (this.readyState == 'complete') onScriptLoad();
+  }
+  scriptTag.onload = onScriptLoad;
+ 
+  var s = $document[0].getElementsByTagName('body')[0];
+  s.appendChild(scriptTag);
+ 
+  return d3service;
+}]);
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -6,7 +32,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers',
-    'starter.services', 'starter.pagesCtrl', 'ngMap'])
+    'starter.services', 'starter.pagesCtrl', 'ngMap','d3'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -36,7 +62,8 @@ angular.module('starter', ['ionic', 'starter.controllers',
     })
   .state('admin', {
       url: "/admin",
-      templateUrl: "pages/admin.html"
+      templateUrl: "pages/admin.html",
+      controller:"AdminCtrl"
     })
   .state('signin', {
       url: "/signin",

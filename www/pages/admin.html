@@ -1,39 +1,154 @@
 <ion-view>
 
     <ion-header-bar align-title="center" class="bar-balanced">
-        <button class="button button-clear icon ion-ios-home" ui-sref="home"></button>
-        <h1 class="title">About</h1>
+        <button class="button button-clear icon ion-refresh"></button>
+        <button class="button button-clear icon ion-navicon-round"></button>
+        <button ng-click="randData()" class="button button-clear icon ion-stats-bars"></button>
+        <h1 class="title">Admin</h1>
+        <button ng-click="upload()" class="button button-clear icon ion-ios-cloud-upload"></button>
     </ion-header-bar>
 
     <ion-content>
-        <div class="card">
-            <div class="item item-divider text-center">
-                <strong>Urban Colonization</strong>
+        <div class="row">
+            <div class="col">
+                <label class="item item-input item-select">
+                  <div class="input-label">
+                    Location
+                  </div>
+                    <select ng-change="updateLoc()" ng-model="selected.loc" ng-options="loc.name for loc in locations"></select>
+                </label>
             </div>
-            <div class="item item-text-wrap">
-              Urban Colonization is a project designed to draw attention to the hidden world of lichens while engaging the Kansas City public through art, science and participation. You are invited to discover 12 hidden-in-plain-site lichen colonies at four partner locations. Colonies will be indoors and outdoors. This app provides clues to guide your search- think geocaching for artwork. The first 100 people to discover all of the colonies will receive an editioned artist photograph and a special surprise. Users will be notified when new colonies are available for discovery as each partner location's colonies will be unveiled at a different points throughout the summer. The project will be active from June 1-Sept 1. Have fun and thanks for participating!
+            <div class="col">
+                <label class="item item-input item-select">
+                  <div class="input-label">
+                    Colony
+                  </div>
+                  <select ng-change="updateColo()" ng-model="selected.colo" ng-options="colo.name for colo in colonies"></select>
+                </label>
+            </div>
+            <div class="col">
+                <label class="item item-input item-select">
+                  <div class="input-label">
+                    Lichen
+                  </div>
+                  <select ng-change="updateLich()" ng-model="selected.lich" ng-options="lich.name for lich in lichens"></select>
+                </label>
             </div>
         </div>
-        <div class="card">
-            <div class="item item-divider text-center">
-                <strong>Biography</strong>
-            </div>
-            <div class="item item-text-wrap">
-                Sarah Hearn is an interdisciplinary visual artist and citizen scientist. Her artwork, rooted in drawing, photography, installation and participatory culture, explores the shifting boundaries of science and science fiction. Sarah has exhibited in galleries and art spaces across the United States and has contributed to international collaborations in Brooklyn, Berlin, and most recently Reading, UK for 2014 International Science Week. Her fictional catalog of marine life "An Unnatural History" represented the United States at the World Creativity Biennial. Sarah’s multi-year collaboration with a PhD lichenologist will soon result in the first field guide of its kind in Oklahoma. She earned her BFA at the Santa Fe College of Art & Design, and her MFA from Rochester Institute of Technology. Find out more about the artist at: <a href="http://sarahhearnart.com" target="_BLANK">sarahhearnart.com</a>, & visit her blog: <a href="http://sarahhearn.blogspot.com/" target="_BLANK">sarahhearn.blogspot.com</a>
-            </div>
+        <hr/>
+        <div class="row">
+            <span class="col text-center h3">{{Name}}<span>
         </div>
-        <div class="card">
-            <div class="item item-divider text-center">
-                UMKC Hacker Team
+        <div class="row">
+            <div ng-if="Name=='Location'" class="col list">
+                <label class="item item-input">
+                  <span class="input-label">Name</span>
+                  <input type="text" ng-model="location1.name">
+                </label>
+                <span class="row">
+                  <span class="col">Times</span>
+                  <span class="col" ng-repeat="time in location1.times">
+                      <div class="row">
+                        <input class="col" type="text" ng-model="time.days">
+                      </div>
+                      <div class="row">
+                        <input class="col" type="text" ng-model="time.hours">
+                      </div>
+                  </span>
+                </span>
+                <label class="item item-input">
+                  <span class="input-label">Available</span>
+                  <input type="date" ng-model="location1.avail">
+                </label>
+                <label class="item item-input">
+                  <span class="input-label">Address</span>
+                  <input type="text" ng-model="location1.address">
+                </label>
+                <label class="item item-input">
+                  <span class="input-label">Url</span>
+                  <input type="text" ng-model="location1.url">
+                </label>
+                <label class="item item-input">
+                  <span class="input-label">Website</span>
+                  <input type="text" ng-model="location1.website">
+                </label>
+                <label class="item item-input">
+                  <span class="input-label">Image</span>
+                  <input type="text" ng-model="location1.img">
+                </label>
+                <span class="row">
+                  <span class="input-label">Colonies</span>
+                  <input type="text" ng-model="location1.colonies">
+                </span>
             </div>
-            <ul class="text-center balanced">
-                <li> An Nguyen </li>
-                <li> Jake Nguyen </li>
-                <li> Mark Nguyen </li>
-                <li> Mike Nguyen </li>
-                <li> Reggie Roby </li>
-                <li> Alex Wachira </li>
-            </ul>
+            <div ng-if="Name=='Colony'" class="col list">
+                <span class="row">
+                  <span class="input-label">Id</span>
+                  <input disabled type="text" ng-model="colony1.id">
+                </span>
+                <hr/>
+                <span class="row">
+                  <span class="input-label">Name</span>
+                  <textarea rows="2" cols="60" ng-model="colony1.name">
+                  </textarea>
+                </span>
+                <hr/>
+                <span class="row">
+                  <span class="input-label">Description</span>
+                  <textarea rows="2" cols="60" ng-model="colony1.descrip">
+                  </textarea>
+                </span>
+                <hr/>
+                <span class="row">
+                  <span class="input-label">Hint</span>
+                  <textarea rows="2" cols="60" ng-model="colony1.hint">
+                  </textarea>
+                </span>
+                <hr/>
+                <span class="row">
+                  <span class="input-label">Image</span>
+                  <textarea rows="2" cols="60" ng-model="colony1.img">
+                  </textarea>
+                </span>
+                <hr/>
+                <span class="row">
+                  <span class="input-label">Image Silhouette</span>
+                  <textarea rows="2" cols="60" ng-model="colony1.imgsil">
+                  </textarea>
+                </span>
+                <hr/>
+                <span class="row">
+                  <span class="input-label">Lichen</span>
+                  <input type="text" ng-model="colony1.lichen">
+                </span>
+            </div>
+            <div ng-if="Name=='Lichen'" class="col list">
+                <span class="row">
+                  <span class="input-label">Id</span>
+                  <input disabled type="text" ng-model="lichen1.id">
+                </span>
+                <hr/>
+                <span class="row">
+                  <span class="input-label">Name</span>
+                  <textarea rows="2" cols="60" ng-model="lichen1.name">
+                  </textarea>
+                </span>
+                <hr/>
+                <span class="row">
+                  <span class="input-label">Description</span>
+                  <textarea rows="2" cols="60" ng-model="lichen1.descrip">
+                  </textarea>
+                </span>
+                <hr/>
+                <span class="row">
+                  <span class="input-label">Image</span>
+                  <textarea rows="2" cols="60" ng-model="lichen1.img">
+                  </textarea>
+                </span>
+            </div>
+            <div class="col">
+                <bars-chart chart-data="myData"  ></bars-chart>
+            </div>
         </div>
     </ion-content>
 </ion-view>
