@@ -1,8 +1,8 @@
 <?php
-$host = "104.236.43.114";
+$host = "urbancolonization.com";
 $user = "root";
 $pass = "rootastic2015";
-$dbname = "mydatabase";
+$dbname = "urbancol";
 
 // connect mySQL
 $conn = mysqli_connect($host, $user, $pass, $dbname);

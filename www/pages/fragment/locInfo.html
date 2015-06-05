@@ -1,0 +1,39 @@
+<div class="modal row" ng-click="closeModal()">
+    <div class="col col-75 col-offset-10" ng-click="dontSwitch($event)">
+        <div class="row text-center h3">
+            <span class="col">
+                <b>{{loc.name}}</b>
+            </span>
+        </div>
+        <div class="row">
+            <div class="col col-offset-10">
+                <span class="h4">Address:</span>
+                <address>
+                    <span>{{loc.address}}</span>
+                    <span>{{loc.city}}</span>
+                </address>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-offset-10">
+                <span class="h4">Hours:</span><br/>
+            </div>
+        </div>
+        <div class="row">
+            <span class="col times text-center" ng-repeat="time in loc.times">
+                <span>{{time.days}}</span><br/><b>{{time.hours}}</b>
+            </span>
+        </div>
+        <div class="row">
+            <div class="col padding-left">
+                <button ng-click="closeModal()" class="button button-block button-balanced">Close</button>
+            </div>
+            <div class="col padding-right">
+                <a target="_blank" href="{{loc.url}}"
+                   class="button button-block button-balanced" role="button">
+                    Website
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

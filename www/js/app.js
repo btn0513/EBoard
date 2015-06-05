@@ -44,11 +44,6 @@ angular.module('starter', ['ionic', 'starter.controllers',
       templateUrl: "pages/signin.html",
       controller:"loginCtrl"
     })
-  .state('signup', {
-      url: "/signup",
-      templateUrl: "pages/signup.html",
-      controller:"signupCtrl"
-    })
   .state('about', {
       url: "/about",
       templateUrl: "pages/about.html"

@@ -1,28 +1,32 @@
 <ion-view>
 
     <ion-header-bar align-title="center" class="bar-balanced">
-        <button class="button button-clear icon ion-ios-home" ui-sref="home"></button>
+          <button class="button button-clear icon-left ion-ios-arrow-back"
+                  ui-sref="home" i>Back</button>
         <h1 class="title">Get Started</h1>
     </ion-header-bar>
 
     <ion-content>
-          <label class="item item-input">
+        <div class="row">
+            <span class="col text-center">Please enter your email address below</span>
+        </div>
+        <label class="item item-input">
             <span class="input-label">Email:</span>
-            <input name="email" ng-keyup="$event.keyCode == 13 && loginbtn(username)" type="text" ng-model="username"/>
-          <ion-spinner id="requesting" class="hidden"></ion-spinner>
-          </label>
+            <input placeholder="email@example.com" name="email" ng-keyup="$event.keyCode == 13 && loginbtn(username)" type="text" ng-model="username"/>
+            <ion-spinner id="requesting" class="hidden"></ion-spinner>
+        </label>
         <div class="row">
             <button ng-click="loginbtn(username)" class="button button-large button-balanced button-block">
                 Log In
             </button>
         </div>
         <div class="row">
-            <p class="col-50 col-offset-25 h3 text-center">
+            <span class="col h3 text-center">
                  - or -
-            </p>
+            </span>
         </div>
         <div class="row">
-            <button class="button button-large button-balanced button-block" ui-sref="signup">
+            <button ng-click="register(username)" class="button button-large button-balanced button-block">
                 Sign Up
             </button>
         </div>

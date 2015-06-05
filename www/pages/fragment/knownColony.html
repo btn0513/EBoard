@@ -11,12 +11,31 @@
     </div>
     <div class="item item-content">
         <div class="row">
-            <span class="col h3 text-center">{{name}}</span>
-        </div>
+            <span class="col h5 text-center item-text-wrap"><b>{{name}}</b></span>
+            <span ng-if="name2" class="col h5 text-center item-text-wrap"><b>{{name2}}</b></span>
+       </div>
         <div class="row">
-            <span class="col text-center">
-                {{descrip}}
+            <span class="col text-center font-ital item-text-wrap">
+                ({{descrip}})
+            </span>
+            <span ng-if="name2" class="col text-center font-ital item-text-wrap">
+                {{descrip2}}
             </span>
         </div>
+        <div class="row">
+            <span ng-class="{'col-offset-25': !name2}" class="col col-50 text-center">
+                <a target="_blank" href="{{url}}"
+                   class="button button-block button-balanced" role="button">
+                    Website
+                </a>
+            </span>
+            <span ng-if="name2" class="col col-50 text-center">
+                <a target="_blank" href="{{url2}}"
+                   class="button button-block button-balanced" role="button">
+                    Website
+                </a>
+            </span>
+        </div>
+                            
     </div>
 </div>

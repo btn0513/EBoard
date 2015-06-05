@@ -1,45 +1,29 @@
 <ion-view>
     <ion-header-bar align-title="center" class="bar-balanced">
-        <button class="button button-clear icon ion-ios-home" ui-sref="home"></button>
-        <h1 class="title">Locations</h1>
         <button class="button button-clear icon ion-android-map"
                 ui-sref="map" i>Map</button>
+        <h1 class="title">Locations</h1>
+        <button class="button button-clear icon ion-ios-home" ui-sref="home"></button>
     </ion-header-bar>
     <ion-content>
-        <div class="text-center">
-            To see a locations lichen, click
-            <button class="button button-small button-clear button-positive icon ion-android-search" i></button>
-        </div>
-        <div ng-repeat="loc in locations track by $index" class="row padding-bottom">
-            <div class="item item-text-wrap col"
-                style="background-image:url('img/locations/{{loc.img}}');">
-                <div id="mainContent" ng-click="goto({{$index+1}})" style="opacity:4">
-                    <div class="row">
-                        <span>
-                            <b>{{loc.name}}</b>
-                        </span>
-                        <span class="col text-right">
-                            <a ng-click="dontSwitch($event)" target="_blank" href="{{loc.url}}">
-                                website
-                            </a>
-                        </span>
-                    </div>
-                    <div class="row" name="address" style="font-size:.8em;">
-                        {{loc.address}}<br/>
-                    </div>
-                    <div class="row" style="margin-bottom:1%;">
-                        <span class="col times text-center" ng-repeat="time in loc.times">
-                            <span>{{time.days}}</span><br/><b>{{time.hours}}</b>
-                        </span>
-                        <div class="col-10">
-                            <button class="button button-small button-outline button-positive icon ion-android-search" i></button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <span class="text-center" style="float:left;width:80%;margin-left:10%;border-color:#28a54c;border-width:1px;border-style:ridge;">
-                            Lichen Available: <b>{{loc.avail}}</b>
-                        </span>
-                    </div>
+        <div ng-repeat="loc in locations track by $index" class="card">
+            <div class="item bggry item-image">
+                <img ng-src="img/locations/{{loc.img}}">
+                <div class="overtxt  padding-vertical">
+                    <span class="overlay-txt h3 item-text-wrap">{{loc.name}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col padding-left">
+                    Lichen Available: <b>{{loc.avail}}</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col padding-left">
+                    <button ng-click="openModal({{$index+1}})" class="button button-block button-balanced">More Info</button>
+                </div>
+                <div class="col padding-right">
+                    <button  ng-click="goto({{$index+1}})" class="button button-block button-balanced">Discover</button>
                 </div>
             </div>
         </div>

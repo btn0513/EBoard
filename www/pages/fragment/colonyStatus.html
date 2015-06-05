@@ -1,14 +1,15 @@
-<div class="modal row" ng-click="closeModal()" style="display: flex;align-items: center;">
-    <div class="col">
+<div class="modal row" ng-click="(found=='not' && closeModal()) || reload()">
+    <div class="col col-75 col-offset-10" ng-click="dontSwitch($event)">
         <div class="row text-center">
-            <span class="col" style="color:white;">
+            <span class="col">
                 {{foundMsg}}
             </span>
         </div>
         <div class="row text-center">
             <span class="col">
-                <button ng-if="!found" class="button button-balanced" ng-click="closeModal()">Cancel</button>
-                <button ng-if="found" class="button button-balanced" ng-click="goto()">Continue</button>
+                <button ng-if="found=='not'" class="button button-assertive" ng-click="closeModal()">Cancel</button>
+                <button ng-if="found!='not'" class="button button-balanced" ng-click="reload()">Back</button>
+                <button ng-if="found!='not'" class="button button-balanced icon-right ion-ios-arrow-forward" ng-click="goto()" i>To Colony</button>
             </span>
         </div>
     </div>

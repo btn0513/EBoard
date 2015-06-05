@@ -56,7 +56,7 @@ else if($_GET["action"]=="discover"){
         if($result)
             $json = "{\"status\":1,\"user\":\"".$_GET["user"]."\",\"col\":".$colony["CID"]."}";
         else 
-            $json = "{\"status\":0,\"user\":\"".$_GET["user"]."\"}";
+            $json = "{\"status\":0,\"user\":\"".$_GET["user"]."\",\"col\":".$colony["CID"]."}";
     }
     echo $json;
 }

@@ -1,85 +1,39 @@
 <ion-view>
     <ion-header-bar align-title="center" class="bar-balanced">
-          <button class="button button-clear icon-left ion-chevron-left"
+          <button class="button button-clear icon-left ion-ios-arrow-back"
                   ui-sref="locations" i>Back</button>
         <h1 class="title">{{loc.name}}</h1>
           <button class="button button-clear icon-right ion-ios-home"
                   ui-sref="home" i></button>
     </ion-header-bar>
     <ion-content>
-        <div id="notAvail" class="text-center hidden">
-            The lichen at this location will be available on<br/>
-            <h3>{{loc.avail}}</h3>
+        <div id="notAvail" class="hidden text-center">
+            lichen will be available on<br/>
+            <b>{{loc.avail}}</b>
         </div>
         <div id="Avail" class="hidden">
-            <div ng-if="undiscovered.length>0" class="item item-divider">
+            <div ng-if="undiscovered.length>0" class="item item-divider ">
                 Undiscovered Lichen
             </div>
-            <div class="row">
-                <div class="col col-50">
-                    <div ng-repeat="colony in undiscovered"><div ng-if="$even" class="row">
-                        <div class="list card" style="margin:0;"
-                              ui-sref="colony.unknown({lid: {{loc.id}}, cid:{{colony.id}}})">
-                            <div class="item">
-                                <a class="item-image">
-                                    <img ng-src="img/colonies/{{colony.imgsil}}.jpg">
-                                </a>
-                                <p class="item-text-wrap text-center">
-                                    Colony {{colony.id}}
-                                </p>
-                            </div>
-                        </div>
-                    </div></div>
+            <div class="card" ng-repeat="colony in undiscovered"
+                    ui-sref="colony.unknown({lid: {{loc.id}}, cid:{{colony.id}}})">
+                <div class="item item-image">
+                    <img ng-src="img/colonies/{{colony.img}}_sil.jpg">
                 </div>
-                <div class="col col-50">
-                    <div ng-repeat="colony in undiscovered"><div ng-if="$odd" class="row">
-                        <div class="list card" style="margin:0;"
-                              ui-sref="colony.unknown({lid: {{loc.id}}, cid:{{colony.id}}})">
-                            <div class="item">
-                                <a class="item-image">
-                                    <img ng-src="img/colonies/{{colony.imgsil}}.jpg">
-                                </a>
-                                <p class="item-text-wrap text-center">
-                                    Colony {{colony.id}}
-                                </p>
-                            </div>
-                        </div>
-                    </div></div>
+                <div class="item-text-wrap text-center h4 balanced">
+                    <b>Colony {{colony.id}}</b>
                 </div>
             </div>
             <div ng-if="discovered.length>0" class="item item-divider">
                 Discovered Lichen
             </div>
-            <div class="row">
-                <div class="col col-50">
-                    <div ng-repeat="colony in discovered"><div ng-if="$even" class="row">
-                        <div class="list card" style="margin:0;"
-                              ui-sref="colony.known({lid: {{loc.id}}, cid:{{colony.id}}})">
-                            <div class="item">
-                                <a class="item-image">
-                                    <img ng-src="img/colonies/{{colony.img}}.jpg">
-                                </a>
-                                <p class="item-text-wrap text-center">
-                                    Colony {{colony.name}}
-                                </p>
-                            </div>
-                        </div>
-                    </div></div>
+            <div class="card" ng-repeat="colony in discovered"
+                    ui-sref="colony.known({lid: {{loc.id}}, cid:{{colony.id}}})">
+                <div class="item item-image">
+                    <img ng-src="img/colonies/{{colony.img}}.jpg">
                 </div>
-                <div class="col col-50">
-                    <div ng-repeat="colony in discovered"><div ng-if="$odd" class="row">
-                        <div class="list card" style="margin:0;"
-                              ui-sref="colony.known({lid: {{loc.id}}, cid:{{colony.id}}})">
-                            <div class="item">
-                                <a class="item-image">
-                                    <img ng-src="img/colonies/{{colony.img}}.jpg">
-                                </a>
-                                <p class="item-text-wrap text-center">
-                                    Colony {{colony.name}}
-                                </p>
-                            </div>
-                        </div>
-                    </div></div>
+                <div class="item-text-wrap text-center h4 balanced">
+                    <b>Colony {{colony.id}}</b>
                 </div>
             </div>
         </div>
