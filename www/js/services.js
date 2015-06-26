@@ -204,52 +204,64 @@ angular.module('starter.services', [])
                 "website":"http://lichenportal.org/portal/taxa/index.php?taxon=53819"
             },
             {"id":9,
-                "name":"lichen 5",
-                "descrip":"blah blah something",
-                "img":"lichen5",
-                "website":""
+                "name":"Punctelia rudecta",
+                "descrip":"Rough speckled shield lichen",
+                "img":"Colony_05_Punctelia_rudecta",
+                "website":"http://lichenportal.org/portal/taxa/index.php?taxon=54597"
             },
             {"id":10,
-                "name":"lichen 5",
-                "descrip":"blah blah something",
-                "img":"lichen5",
-                "website":""
+                "name":"Xanthoparmelia hypomelaena",
+                "descrip":"Ozark rock-shield lichen",
+                "img":"Colony_05_Xanthoparmelia_hypomelaena",
+                "website":"http://lichenportal.org/portal/taxa/index.php?taxon=54741"
             },
             {"id":11,
-                "name":"lichen 5",
-                "descrip":"blah blah something",
-                "img":"lichen5",
-                "website":""
+                "name":"Acoraspora socialis",
+                "descrip":"Bright cobblestone lichen",
+                "img":"Colony_05_Acoraspora_socialis",
+                "website":"http://lichenportal.org/portal/taxa/index.php?taxon=53034"
             },
             {"id":12,
-                "name":"lichen 5",
-                "descrip":"blah blah something",
-                "img":"lichen5",
-                "website":""
+                "name":"Parmotrema chinese",
+                "descrip":"Powdered ruffle lichen",
+                "img":"Colony_05_Parmotrema_chinese",
+                "website":"http://www.lichen.com/bigpix/Pchinense.html"
             },
             {"id":13,
-                "name":"lichen 5",
-                "descrip":"blah blah something",
-                "img":"lichen5",
-                "website":""
+                "name":"Parmotrema perforatum",
+                "descrip":"Perforated ruffle lichen",
+                "img":"Colony_05_Parmotrema_perforatum",
+                "website":"http://lichenportal.org/portal/taxa/index.php?taxon=54560"
             },
             {"id":14,
-                "name":"lichen 5",
-                "descrip":"blah blah something",
-                "img":"lichen5",
-                "website":""
+                "name":"Lecanora muralis",
+                "descrip":"Stonewall rim-lichen",
+                "img":"Colony_05_Lecanora_muralis",
+                "website":"http://lichenportal.org/portal/taxa/index.php?taxon=53848"
             },
             {"id":15,
-                "name":"lichen 5",
-                "descrip":"blah blah something",
-                "img":"lichen5",
-                "website":""
+                "name":"Candelariella vitellina",
+                "descrip":"Common goldspeck lichen",
+                "img":"Colony_06_Candelariella_vitellina",
+                "website":"http://lichenportal.org/portal/taxa/index.php?taxon=53284"
             },
             {"id":16,
-                "name":"lichen 5",
-                "descrip":"blah blah something",
-                "img":"lichen5",
-                "website":""
+                "name":"Candelaria fibrosa",
+                "descrip":"Fringed candleflame lichen",
+                "img":"Colony_06_Candelaria_fibrosa",
+                "website":"http://lichenportal.org/portal/taxa/index.php?taxon=53262"
+            },
+            {"id":1515,
+                "name":"Candelariella vitellina",
+                "descrip":"Common goldspeck lichen",
+                "img":"Colony_06_Candelariella_vitellina",
+                "website":"http://lichenportal.org/portal/taxa/index.php?taxon=53284"
+            },
+            {"id":1616,
+                "name":"Candelaria fibrosa",
+                "descrip":"Fringed candleflame lichen",
+                "img":"Colony_06_Candelaria_fibrosa",
+                "website":"http://lichenportal.org/portal/taxa/index.php?taxon=53262"
             },
             {"id":17,
                 "name":"lichen 5",
@@ -341,15 +353,15 @@ angular.module('starter.services', [])
             },
             {"id":5,
                 "qr":"C5R2B5",
-                "hint":"This elusive and camera shy colony is flourishing in a liminal habitat.",
+                "hint":"This group is a social one. Their communal lifestyle connects them to more than just each other.",
                 "img":"Colony_05",
                 "lichen":[9,10,11,12,13,14]
             },
             {"id":6,
                 "qr":"2R5GP7",
-                "hint":"This group is a social one. Their communial lifestyle connects them to more than just each other.",
+                "hint":"This elusive colony is camera shy, but flourishing in a liminal habitat.",
                 "img":"Colony_06",
-                "lichen":[15,16]
+                "lichen":[15,16,1515,1616]
             },
             {"id":7,
                 "qr":"7",

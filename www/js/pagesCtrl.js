@@ -104,7 +104,7 @@ angular.module('starter.pagesCtrl', ['ionic', 'angularCharts'])
         if(!$scope.lichenList[$index].name2){
             $scope.name2 = null;
             $scope.descrip2 = null;
-            $scope.url = null;
+            $scope.url2 = null;
         }else{
             $scope.name2 = $scope.lichenList[$index].name2;
             $scope.descrip2 = $scope.lichenList[$index].descrip2;
@@ -276,7 +276,7 @@ angular.module('starter.pagesCtrl', ['ionic', 'angularCharts'])
     });
 })
 
-.controller('loginCtrl', function($scope, $state, $ionicLoading, $ionicModal, user) {
+.controller('loginCtrl', function($scope, $state, $ionicLoading, $ionicHistory, $ionicModal, user) {
     $scope.username = "";
     if(window.localStorage['username'])
         $scope.username = window.localStorage['username'];
@@ -309,9 +309,6 @@ angular.module('starter.pagesCtrl', ['ionic', 'angularCharts'])
         $ionicLoading.hide();
         if(data.status){
             window.localStorage['username'] = data.user;
-            $ionicHistory.clearCache();
-            $ionicHistory.clearHistory();
-            $state.reload();
             $state.go('locations');
         }else{
             $scope.loginMsg = "username already in use";
